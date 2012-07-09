@@ -51,7 +51,7 @@ public class SearchInRotatedSortedArray {
         if (x == a[mid]) { // Found element
             return mid;
         }
-        if (right < left) {
+        if (right < left || right < 0 || left >= a.length || a.length == 0) {
             return -1;
         }
 

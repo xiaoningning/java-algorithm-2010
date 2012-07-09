@@ -19,7 +19,7 @@ public class StringOps {
         String lcs1 = LCS1(s1, s2);
         System.out.println("LCS1: " + lcs1);
 
-        String s3 = "abcdefg";
+        String s3 = "abcdefgh";
         System.out.println("s3: " + s3);
         int k = 3;
         String rs3 = rotateString(s3, k);
@@ -190,9 +190,14 @@ public class StringOps {
 
     public static String rotateString(String s, int k) {
         int n = s.length();
+        /*
         String rs1 = reverse(s, 0, n - 1);
-        String rs2 = reverse(rs1, 0, k);
-        String rs3 = reverse(rs2, k + 1, n - 1);
+        String rs2 = reverse(rs1, 0, n-k-1);
+        String rs3 = reverse(rs2, n-k, n - 1);
+        */
+        String rs1 = reverse(s, 0, k-1);
+        String rs2 = reverse(rs1, k, n-1);
+        String rs3 = reverse(rs2, 0, n - 1);
 
         return rs3;
 

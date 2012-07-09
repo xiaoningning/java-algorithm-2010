@@ -10,7 +10,8 @@ import java.util.Arrays;
 
 public class StablePartition {
     public static void main(String[] args){
-        int[] a = new int[]{1, -5, 2, 3, -4, -2, 9, 3, -1};
+        // int[] a = new int[]{1, -5, 2, 3, -4, -2, 9, 3, -1};
+        int[] a = new int[]{1, -5, 7, 3, -1, -2, 9, 3, -3};
         //int[] a = new int[]{1, -3, 2,-1,3};
 
         stable2WayPartition(a);

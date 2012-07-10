@@ -58,7 +58,7 @@ public class Permutations {
         int N = Integer.parseInt(s.nextLine());
         String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String elements = alphabet.substring(0, N);
-        // perm1(elements);
+        perm1(elements);
         System.out.println();
         perm2(elements);
     }

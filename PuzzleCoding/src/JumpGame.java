@@ -16,7 +16,6 @@ public class JumpGame {
         jumpGame(a1);
         jumpGame(a2);
 
-
     }
 
     public static void jumpGame(int[] a) {

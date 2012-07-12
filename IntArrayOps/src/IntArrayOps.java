@@ -166,7 +166,7 @@ public class IntArrayOps {
         if (ai < bj_1)
             return findK(a, i + 1, ra, b, lb, j - 1, k - 1 - (i - la));
         else // bj < ai_1
-            return findK(a, la, i - 1, b, j + 1, rb, k - 1 - (j - lb) - 1);
+            return findK(a, la, i - 1, b, j + 1, rb, k - 1 - (j - lb));
 
     }
 

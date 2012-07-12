@@ -40,10 +40,11 @@ public class StablePartition {
             i++;
         while (j<=right && a[j]<0)
             j++;
+
+        reverse(a, i, mid);
+        reverse(a, mid+1,j-1);
         reverse(a, i, j-1);
-        reverse(a, i, j-1-mid+i-1 );
-        reverse(a, j-1-mid+i, j-1);
-        // System.out.println(Arrays.toString(a));
+
     }
 
     public static void reverse(int[] a, int left, int right){

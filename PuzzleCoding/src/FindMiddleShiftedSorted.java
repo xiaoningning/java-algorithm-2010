@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class FindMiddleShiftedSorted {
     public static void main(String[] args){
         int[] a1 = new int[]{15,17,1,3,6,7};
-        int[] a2 = new int[]{15,16,17,18,1,7};
+        int[] a2 = new int[]{15,16,17,18,1};
         int[] a3 = new int[]{1,2,3,4};
         findMiddleShiftedSorted(a1);
         findMiddleShiftedSorted(a2);

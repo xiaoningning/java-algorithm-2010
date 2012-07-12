@@ -50,12 +50,10 @@ public class StringAnagram {
         char[] a2 = s2.toCharArray();
         for (char c : a2) {
             letter[c]--;
-            if (letter[c] < 0)
-                return false;
-
         }
+
         for(int i = 0; i < letter.length; ++i){
-            if(letter[i]>0)
+            if((letter[i]>0) ||(letter[i]<0))
                 return false;
         }
         return true;

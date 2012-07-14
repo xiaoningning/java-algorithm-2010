@@ -66,6 +66,7 @@ public class TreeLeafPath {
 
     }
 
+
     public static void main(String[] args) {
 
         TreeLeafPath root = new TreeLeafPath(12);
@@ -91,5 +92,7 @@ public class TreeLeafPath {
 
         Stack<TreeLeafPath> stack = new Stack<TreeLeafPath>();
         leafPath(root, stack);
+        System.out.println();
+
     }
 }

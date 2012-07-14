@@ -21,10 +21,10 @@ public class JumpGame {
     public static void jumpGame(int[] a) {
         if (a.length == 0) return;
 
-        int[] preStep = new int[a.length];
+        int[] previousStep = new int[a.length];
 
-        for (int i = 0; i < preStep.length; i++)
-            preStep[i] = -1;
+        for (int i = 0; i < previousStep.length; i++)
+            previousStep[i] = -1;
 
         boolean reachEnd = false;
         int furthest = a[0];
@@ -33,11 +33,11 @@ public class JumpGame {
             furthest = Math.max(furthest, a[i] + i);
             for (int j = 0; j <= furthest; j++) {
                 if (j < a.length) {
-                    if (preStep[j] == -1)
-                        preStep[j] = i;
+                    if (previousStep[j] == -1)
+                        previousStep[j] = i;
                     else {
-                        if (preStep[j] > i)
-                            preStep[j] = i;
+                        if (previousStep[j] > i)
+                            previousStep[j] = i;
                     }
                 }
             }
@@ -54,7 +54,7 @@ public class JumpGame {
             int end = a.length - 1;
             while (end != 0) {
                 System.out.print(a[end] +"->");
-                end = preStep[end];
+                end = previousStep[end];
             }
             System.out.print(a[end]);
             System.out.println();

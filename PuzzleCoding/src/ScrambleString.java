@@ -41,13 +41,14 @@
  */
 public class ScrambleString {
     public static void main(String[] args) {
-        // String s1 = "apple";
-        // String s2 = "palpe";
+
+        // they are anagram as a whole string, but not scramble
         String s1 = "tiger";
         String s2 = "tgrie";
 
         System.out.println(isScrambleStringRecursive(s1, s2));
 
+        // they are anagram as well as scramble
         s1 = "tiger";
         s2 = "itreg";
 

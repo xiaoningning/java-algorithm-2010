@@ -2,11 +2,14 @@ import java.util.Arrays;
 
 public class StringAnagram {
     public static void main(String[] args) {
-        String s1 = "apple";
-        String s2 = "pplae";
+        // String s1 = "apple";
+        // String s2 = "palpe";
+        String s1 = "tiger";
+        String s2 = "tgrie";
 
         System.out.println(isAnagram(s1, s2));
         System.out.println(isPermutation(s1, s2));
+
 
     }
 
@@ -52,10 +55,12 @@ public class StringAnagram {
             letter[c]--;
         }
 
-        for(int i = 0; i < letter.length; ++i){
-            if((letter[i]>0) ||(letter[i]<0))
+        for (int i = 0; i < letter.length; ++i) {
+            if ((letter[i] > 0) || (letter[i] < 0))
                 return false;
         }
         return true;
     }
+
+
 }

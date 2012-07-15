@@ -127,12 +127,12 @@ public class SumZero {
             return;
         }
 
-        for (int i = 0; i < list.length; ++i) {
+        for (int i = 0; i < list.length-2; ++i) {
             if (list[i] > 0) {
                 System.out.println("not found");
                 break;
             }
-            for (int j = i + 1; j < list.length; ++j) {
+            for (int j = i + 1; j < list.length-1; ++j) {
                 int tmp = (list[i] + list[j]) * -1;
 
                 int s = j + 1, e = list.length - 1;

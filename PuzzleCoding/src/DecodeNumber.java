@@ -23,12 +23,19 @@ public class DecodeNumber {
 
     public static void decodeNumber(String s) {
         int len = s.length();
+
+        if(len == 0){
+            System.out.println("empty string");
+            return;
+        }
+
         for (int i = 0; i < len; i++) {
             if (!((s.charAt(i) - '0') <= 9) && !(('9' - s.charAt(i)) >= 0)) {
                 System.out.println(s + " is not number.");
                 return;
             }
         }
+
         int[] ways = new int[len];
         ways[0] = (s.charAt(0) == '0') ? 0 : 1;
         for (int i = 1; i < len; i++) {

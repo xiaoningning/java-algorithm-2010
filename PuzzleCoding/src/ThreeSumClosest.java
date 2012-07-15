@@ -8,7 +8,7 @@ import java.util.Arrays;
  * <p/>
  * The solution is to use two nested loops to enumerate the combination of num[i], num[j],
  * and then use binary search to locate the numbers which may have the closest distance with the target.
- * The complexity of this algorithm is O(n^2 logn).
+ * The complexity of this algorithm is O(n^2*logn).
  */
 public class ThreeSumClosest {
     public static void main(String[] args) {

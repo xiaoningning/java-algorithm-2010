@@ -22,6 +22,16 @@ public class SetMatrixZero {
         setMatrixZero(matrix);
         System.out.println(Arrays.deepToString(matrix));
 
+        matrix = new int[][]{
+                {1, 2, 3, 5},
+                {2, 4, 0, 1},
+                {2, 4, 2, 1},
+                {0, 4, 2, 1},
+        };
+
+        setZeros(matrix);
+        System.out.println(Arrays.deepToString(matrix));
+
     }
 
     // do it in place
@@ -80,4 +90,31 @@ public class SetMatrixZero {
 
         return;
     }
+
+
+    // need extra space O(m+n)
+    public static void setZeros(int[][] matrix) {
+        boolean[] row = new boolean[matrix.length];
+        boolean[] column = new boolean[matrix[0].length];
+
+        // Store the row and column index with value 0
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length;j++) {
+                if (matrix[i][j] == 0) {
+                    row[i] = true;
+                    column[j] = true;
+                }
+            }
+        }
+
+        // Set arr[i][j] to 0 if either row i or column j has a 0
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                if (row[i] || column[j]) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+    }
+
 }

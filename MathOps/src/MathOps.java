@@ -40,10 +40,40 @@ public class MathOps {
         return r;
     }
 
+    public static int divide(int dividend, int divisor){
+
+        if ( divisor == 0)
+            throw new ArithmeticException("divisor is 0");
+
+        boolean neg_dividend = (dividend <0);
+        boolean neg_divisor = (divisor <0);
+
+        if(neg_dividend)
+            dividend = (dividend^-1)+1;
+        if(neg_divisor)
+            divisor = (divisor^-1)+1;
+
+        int result = 0;
+
+        while (dividend >= divisor){
+            dividend -= divisor;
+            result++;
+
+        }
+
+        if(neg_dividend^neg_divisor)
+            result = (result^-1)+1;
+
+        return result;
+
+    }
+
     public static void main(String[] args){
 
         System.out.println("add: " + add(6, -2));
         System.out.println("sqrt: " + sqrt(120.0));
         System.out.println("pow: " + pow(2.0,-3));
+        System.out.println("divide: " + divide(-21474,3));
+
     }
 }

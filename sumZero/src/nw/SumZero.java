@@ -32,7 +32,7 @@ public class SumZero {
 
         } else {
             while (j < n) {
-                System.out.println("check " + list.get(i) + " " + list.get(j) + " " + list.get(n) + " " + list.get(m));
+                //System.out.println("check " + list.get(i) + " " + list.get(j) + " " + list.get(n) + " " + list.get(m));
                 if (Math.abs(list.get(i)) < Math.abs(list.get(m))) {
                     if (Math.abs(list.get(i)) + Math.abs(list.get(j)) == Math.abs(list.get(n))) {
                         System.out.println("winner: " + list.get(i) + " " + list.get(j) + " " + list.get(n));
@@ -95,12 +95,12 @@ public class SumZero {
             return;
         }
 
-        for (int i = 0; i < list.length; ++i) {
+        for (int i = 0; i < list.length-2; ++i) {
             if (list[i] > 0) {
                 System.out.println("not found");
                 break;
             }
-            for (int j = i + 1; j < list.length; ++j) {
+            for (int j = i + 1; j < list.length-1; ++j) {
                 int tmp = (list[i] + list[j]) * -1;
 
                 int k = binarySearch(list, tmp);

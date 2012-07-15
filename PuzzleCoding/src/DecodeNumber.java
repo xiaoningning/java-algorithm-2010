@@ -34,7 +34,10 @@ public class DecodeNumber {
         for (int i = 1; i < len; i++) {
             char p = s.charAt(i - 1);
             char c = s.charAt(i);
-            if (p == '1' || (p == '2' && c <= '6') || (p == '0' && c != '0' && ways[i-1]==0)) {
+            if (p == '0' && c != '0' && ways[i-1]==0){
+                ways[i-1] =1;
+            }
+            if (p == '1' || (p == '2' && c <= '6') ) {
                 ways[i] = ways[i - 1] *2;
             } else
                 ways[i] = ways[i - 1];

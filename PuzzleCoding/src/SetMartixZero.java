@@ -9,7 +9,7 @@ import java.util.Arrays;
  * A simple improvement uses O(m + n) space, but still not the best solution.
  * Could you devise a constant space solution?
  */
-public class SetMartixZero {
+public class SetMatrixZero {
     public static void main(String[] args) {
         int[][] matrix = new int[][]{
                 {1, 2, 3, 5},

@@ -93,7 +93,7 @@ public class ThreeSumClosest {
         return result;
     }
 
-    // non binary search
+    // non binary search O(n^3)
     public static int[] threeSumClosest1(int[] a, int target) {
         int[] result = new int[3];
 

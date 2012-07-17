@@ -24,7 +24,7 @@ public class IsBST {
     }
 
     public static boolean isBST(Node node, int min, int max) {
-        if ((node.left == null) && (node.right == null)){
+        if ((node == null)){
             return true;
         }
         if ((min < node.value) && (node.value < max)) {
@@ -37,7 +37,7 @@ public class IsBST {
     }
 
     public static boolean isBST1(Node node, int prev) {
-        if ((node.left == null) && (node.right == null)) {
+        if ((node == null)) {
             return true;
         }
         if (isBST1(node.left, prev)) {

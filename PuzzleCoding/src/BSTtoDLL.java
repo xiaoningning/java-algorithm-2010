@@ -32,15 +32,20 @@ public class BSTtoDLL {
         ArrayList<Node> dll = bstToDLL(root);
         printDll(dll);
 
+        bstToDll1(root);
+
+        System.out.print(tail.value);
+
     }
 
 
     public static void printDll(ArrayList<Node> dll) {
         if (dll.size() != 0) {
-            for(Node n:dll){
+            for (Node n : dll) {
                 System.out.print(n.value + " ");
             }
         }
+        System.out.println();
     }
 
     // not in place
@@ -52,15 +57,14 @@ public class BSTtoDLL {
         ArrayList<Node> dll = new ArrayList<Node>();
         Node current = node;
         boolean done = false;
-        while (!done){
-            if(current != null){
+        while (!done) {
+            if (current != null) {
                 stack.push(current);
                 current = current.left;
-            }else {
-                if(stack.isEmpty()){
+            } else {
+                if (stack.isEmpty()) {
                     done = true;
-                }
-                else {
+                } else {
                     current = stack.pop();
                     dll.add(current);
                     current = current.right;
@@ -68,6 +72,36 @@ public class BSTtoDLL {
             }
         }
         return dll;
+    }
+
+    static Node prev, tail;
+
+    public static void bstToDll1(Node p) {
+        if (p == null)
+            return;
+
+        bstToDll1(p.left);
+        p.left = prev;
+        if (prev == null){
+            tail = p;
+        }
+        else{
+            // current node (smallest element) is head of
+            // the list if previous node is not available
+            prev.right = p;
+        }
+
+        // as soon as the recursion ends, the head's left pointer
+        // points to the last node, and the last node's right pointer
+        // points to the head pointer.
+
+        Node rightNode = p.right;
+        tail.left = p;
+        p.right = tail;
+        prev = p;
+
+        bstToDll1(rightNode);
+
     }
 
 

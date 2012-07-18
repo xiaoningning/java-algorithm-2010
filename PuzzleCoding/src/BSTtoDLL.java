@@ -82,12 +82,13 @@ public class BSTtoDLL {
 
         bstToDll1(p.left);
         p.left = prev;
+        // current node (smallest element) is head of
+        // the list if previous node is not available
         if (prev == null){
             tail = p;
         }
         else{
-            // current node (smallest element) is head of
-            // the list if previous node is not available
+
             prev.right = p;
         }
 

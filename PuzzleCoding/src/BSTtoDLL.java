@@ -91,8 +91,11 @@ public class BSTtoDLL {
 		return dll;
 	}
 
+
+
 	static Node prev, head;
 
+    // in place approach
 	public static void bstToDllinPlace(Node p) {
 		if (p == null)
 			return;

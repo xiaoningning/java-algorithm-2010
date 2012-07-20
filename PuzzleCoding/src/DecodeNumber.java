@@ -24,7 +24,7 @@ public class DecodeNumber {
     public static void decodeNumber(String s) {
         int len = s.length();
 
-        if(len == 0){
+        if (len == 0) {
             System.out.println("empty string");
             return;
         }
@@ -41,11 +41,11 @@ public class DecodeNumber {
         for (int i = 1; i < len; i++) {
             char p = s.charAt(i - 1);
             char c = s.charAt(i);
-            if (p == '0' && c != '0' && ways[i-1]==0){
-                ways[i-1] =1;
+            if (p == '0' && c != '0' && ways[i - 1] == 0) {
+                ways[i - 1] = 1;
             }
-            if (p == '1' || (p == '2' && c <= '6') ) {
-                ways[i] = ways[i - 1] *2;
+            if (p == '1' || (p == '2' && c <= '6')) {
+                ways[i] = ways[i - 1] * 2;
             } else
                 ways[i] = ways[i - 1];
         }

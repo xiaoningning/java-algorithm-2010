@@ -11,7 +11,7 @@
 public class JumpGame {
     public static void main(String[] args) {
         int[] a1 = new int[]{2, 3, 1, 1, 4};
-        int[] a2 = new int[]{2, 3, 1, 1, 0,4};
+        int[] a2 = new int[]{2, 3, 1, 1, 0, 4};
 
         jumpGame(a1);
         jumpGame(a2);
@@ -53,7 +53,7 @@ public class JumpGame {
         } else {
             int end = a.length - 1;
             while (end != 0) {
-                System.out.print(a[end] +"->");
+                System.out.print(a[end] + "->");
                 end = previousStep[end];
             }
             System.out.print(a[end]);

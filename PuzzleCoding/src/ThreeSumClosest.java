@@ -106,29 +106,29 @@ public class ThreeSumClosest {
         int x, y, z, sum, temp_distance;
         for (int i = 0; i < a.length - 2; i++) {
             x = a[i];
-            for (int j = i + 1, k = a.length-1; j < k; ) {
+            for (int j = i + 1, k = a.length - 1; j < k; ) {
                 y = a[j];
                 z = a[k];
-                sum = x+y+z;
-                temp_distance = Math.abs(sum-target);
-                if(sum < target){
+                sum = x + y + z;
+                temp_distance = Math.abs(sum - target);
+                if (sum < target) {
 
-                    if(temp_distance < min_distance){
+                    if (temp_distance < min_distance) {
                         min_distance = temp_distance;
                         result[0] = x;
                         result[1] = y;
                         result[2] = z;
                     }
                     j++;
-                } else if(sum > target){
-                    if(temp_distance < min_distance){
+                } else if (sum > target) {
+                    if (temp_distance < min_distance) {
                         min_distance = temp_distance;
                         result[0] = x;
                         result[1] = y;
                         result[2] = z;
                     }
                     k--;
-                }else {
+                } else {
                     result[0] = x;
                     result[1] = y;
                     result[2] = z;

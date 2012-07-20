@@ -9,7 +9,7 @@
 
 public class SearchInRotatedSortedArray {
     public static void main(String[] args) {
-        int[] a = { 2, 3, 2, 2, 2, 2, 2, 2 , 2 , 2 };
+        int[] a = {2, 3, 2, 2, 2, 2, 2, 2, 2, 2};
 
         System.out.println(searchInSortedArray(a, 0, a.length - 1, 3));
         System.out.println(search(a, 0, a.length - 1, 3));

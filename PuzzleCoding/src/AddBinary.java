@@ -6,7 +6,7 @@
 * Return "100".
 */
 public class AddBinary {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         String s1 = "11";
         String s2 = "110";
 
@@ -18,12 +18,12 @@ public class AddBinary {
 
     }
 
-    public static int string2Integer(String s, int code){
+    public static int string2Integer(String s, int code) {
         int len = s.length();
         int result = 0;
-        for (int i = 0; i < len;++i){
-            int temp = Integer.valueOf(s.substring(len - i -1, len - i));
-            result += Math.pow(code,i) * temp;
+        for (int i = 0; i < len; ++i) {
+            int temp = Integer.valueOf(s.substring(len - i - 1, len - i));
+            result += Math.pow(code, i) * temp;
         }
         return result;
     }
@@ -31,10 +31,10 @@ public class AddBinary {
     public static String toBinary(int integer) {
         StringBuilder builder = new StringBuilder();
         int temp = 0;
-        while (integer>0) {
+        while (integer > 0) {
             temp = integer;
-            integer = (temp>>1);
-            builder.append(temp%2);
+            integer = (temp >> 1);
+            builder.append(temp % 2);
         }
         return builder.reverse().toString();
     }

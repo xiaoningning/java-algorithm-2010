@@ -32,7 +32,7 @@ public class SpiralMatrix {
             for (int j = layer; j <= m - layer; ++j)
                 matrix[layer][j] = ++k;
             //right
-            for (int i =layer + 1; i <= m - layer; ++i)
+            for (int i = layer + 1; i <= m - layer; ++i)
                 matrix[i][m - layer] = ++k;
             //bottom
             for (int j = m - layer - 1; j >= layer; --j)

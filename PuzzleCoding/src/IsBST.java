@@ -24,13 +24,13 @@ public class IsBST {
     }
 
     public static boolean isBST(Node node, int min, int max) {
-        if ((node == null)){
+        if ((node == null)) {
             return true;
         }
         if ((min < node.value) && (node.value < max)) {
             return isBST(node.left, min, node.value) &&
                     isBST(node.right, node.value, max);
-        } else{
+        } else {
             return false;
         }
 

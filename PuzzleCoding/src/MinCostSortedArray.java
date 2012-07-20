@@ -28,23 +28,23 @@ import java.util.Arrays;
  * a[n] + C(n - 1, m),   // delete
  * (a[n] <= m) ?  C(n - 1, a[n]) : C(n - 1, m) + a[n] - m // decrement
  * )
- *
+ * <p/>
  * Here is an example.  Suppose we have a = [5, 1, 1, 1, 3, 1].  The
- least cost here is obtained by decrementing the 5 to 1 (cost 4) and
- deleting the final 1 (cost 1) for a total cost of 5.
- So let's try the algorithm. (You must view this with a fixed font.)
- Table of C(n, m) values:
- m = 1   3   5
- n = 1 : 4   2   0
- n = 2 : 4   3*  1*
- n = 3 : 4   4   2*
- n = 4 : 4   4   3*
- n = 5 : 6m  4   4
- n = 6 : 6   5*  5*
- Here * means C resulted from decrementing and "m" means that a
- decrement was based on the value of m rather than a[n].
- We take the answer from C(6,5) = 5.
-
+ * least cost here is obtained by decrementing the 5 to 1 (cost 4) and
+ * deleting the final 1 (cost 1) for a total cost of 5.
+ * So let's try the algorithm. (You must view this with a fixed font.)
+ * Table of C(n, m) values:
+ * m = 1   3   5
+ * n = 1 : 4   2   0
+ * n = 2 : 4   3*  1*
+ * n = 3 : 4   4   2*
+ * n = 4 : 4   4   3*
+ * n = 5 : 6m  4   4
+ * n = 6 : 6   5*  5*
+ * Here * means C resulted from decrementing and "m" means that a
+ * decrement was based on the value of m rather than a[n].
+ * We take the answer from C(6,5) = 5.
+ * <p/>
  * <p/>
  * Now the solution becomes easy to understand: it is a DP in two dimensions.
  * If we sort the elements of the distinct elements of the original sequence d into a sorted array s,
@@ -88,9 +88,9 @@ public class MinCostSortedArray {
         int[][] cost = new int[a.length][sorted.length];
 
         int[] index = new int[a.length];
-        for(int i =0; i < a.length; i++){
-            for( int k =0 ; k < sorted.length; k++){
-                if(sorted[k] == a[i])
+        for (int i = 0; i < a.length; i++) {
+            for (int k = 0; k < sorted.length; k++) {
+                if (sorted[k] == a[i])
                     index[i] = k;
             }
         }
@@ -102,8 +102,8 @@ public class MinCostSortedArray {
         for (int i = 1; i < a.length; i++) {
             for (int j = 0; j < sorted.length; j++) {
 
-                int del_cost = cost[i-1][j] + a[i];
-                int decr_cost = (a[i] > sorted[j]) ? (cost[i - 1][j] + (a[i] - sorted[j])) : cost[i-1][index[i]];
+                int del_cost = cost[i - 1][j] + a[i];
+                int decr_cost = (a[i] > sorted[j]) ? (cost[i - 1][j] + (a[i] - sorted[j])) : cost[i - 1][index[i]];
 
                 cost[i][j] = Math.min(del_cost, decr_cost);
 

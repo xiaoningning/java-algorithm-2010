@@ -5,14 +5,14 @@ import java.util.List;
 /**
  * print out all leaf node path with non recursive method
  * The structure of node is *NOT* binary tree, is just a normal tree.
- *
+ * <p/>
  * print out all leaf node path
  * //              12
  * //    4         8        22
  * //1  2  3     9     18   24
- *
+ * <p/>
  * the output is like:
- *
+ * <p/>
  * 12, 4, 1,
  * 12, 4, 2,
  * 12, 4, 3,
@@ -37,10 +37,10 @@ public class TreeLeafPath {
     public static void printPath(Stack<TreeLeafPath> s) {
         List<TreeLeafPath> list = s.subList(0, s.size());
         for (int i = 0; i < list.size(); i++) {
-            if(i+1 == list.size())
+            if (i + 1 == list.size())
                 System.out.print(list.get(i).value);
             else
-                System.out.print(list.get(i).value+"->");
+                System.out.print(list.get(i).value + "->");
         }
         System.out.println();
     }

@@ -1,4 +1,3 @@
-
 /**
  * An O(N) Solution (Manacher’s Algorithm):
  * S = “abaaba”, T = “#a#b#a#a#b#a#”.
@@ -54,8 +53,8 @@ public class LongestPalindrome {
             }
         }
 
-        int start =  (centerIndex-maxLength) / 2;
-        return s.substring(start, start+maxLength);
+        int start = (centerIndex - maxLength) / 2;
+        return s.substring(start, start + maxLength);
 
     }
 }

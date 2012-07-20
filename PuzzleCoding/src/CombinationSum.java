@@ -18,41 +18,42 @@ A solution set is:
 [2, 2, 3]
 */
 public class CombinationSum {
-    public static void main(String[] args){
-        int[] a = new int[]{2,3,6,7,10};
+    public static void main(String[] args) {
+        int[] a = new int[]{2, 3, 6, 7, 10};
         int target = 10;
 
-        ArrayList<ArrayList<Integer>> results =  new ArrayList<ArrayList<Integer>>();
+        ArrayList<ArrayList<Integer>> results = new ArrayList<ArrayList<Integer>>();
         ArrayList<Integer> r = new ArrayList<Integer>();
         combinationSum(a, 0, target, r, results);
 
         System.out.println(results.toString());
 
     }
+
     public static void combinationSum(int[] a,
-                                    int index,
-                                    int target,
-                                    ArrayList<Integer> r,
-                                    ArrayList<ArrayList<Integer>> results){
+                                      int index,
+                                      int target,
+                                      ArrayList<Integer> r,
+                                      ArrayList<ArrayList<Integer>> results) {
 
 
-        if(target ==0){
+        if (target == 0) {
             results.add(new ArrayList<Integer>(r));
             return;
         }
-        if(a.length == index)
+        if (a.length == index)
             return;
 
-        combinationSum(a,index+1,target,r, results);
+        combinationSum(a, index + 1, target, r, results);
 
         int tmp = a[index];
-        int canUse = target/tmp;
-        for(int i=1; i<=  canUse; ++i){
+        int canUse = target / tmp;
+        for (int i = 1; i <= canUse; ++i) {
             r.add(tmp);
-            combinationSum(a, index+1, target-tmp*i,r, results);
+            combinationSum(a, index + 1, target - tmp * i, r, results);
         }
 
-        for(int i=1; i<=  canUse; ++i){
+        for (int i = 1; i <= canUse; ++i) {
             r.remove(Integer.valueOf(tmp));
         }
     }

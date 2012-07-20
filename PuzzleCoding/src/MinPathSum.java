@@ -88,8 +88,8 @@ public class MinPathSum {
     }
 
     // Dijkstra's algorithm
-    public static void DijkstraPathSum(int[][] grid){
-        if(grid.length == 0){
+    public static void DijkstraPathSum(int[][] grid) {
+        if (grid.length == 0) {
             System.out.println("sum path for zero grid " + 0);
             return;
         }
@@ -99,8 +99,8 @@ public class MinPathSum {
         boolean[][] visit = new boolean[row][col];
         int[][] cost = new int[row][col];
 
-        for(int i = 0; i<row; i++){
-            for(int j = 0; j<col;j++){
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
                 cost[i][j] = Integer.MAX_VALUE;
             }
         }
@@ -111,35 +111,35 @@ public class MinPathSum {
         path[0][0] = "0-0";
         visit[0][0] = true;
 
-        for(int i = 0; i< row ; i++){
-            for(int j = 0; j< col && visit[i][j] ;j++){
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col && visit[i][j]; j++) {
 
                 //left
-                int r = i+1, c = j;
+                int r = i + 1, c = j;
 
-                if( r < row ){
-                    if(cost[r][c] > cost[i][j] + grid[r][c]){
+                if (r < row) {
+                    if (cost[r][c] > cost[i][j] + grid[r][c]) {
                         cost[r][c] = cost[i][j] + grid[r][c];
-                        visit[r][c]= true;
-                        path[r][c] = String.valueOf(i)+"-"+String.valueOf(j);
+                        visit[r][c] = true;
+                        path[r][c] = String.valueOf(i) + "-" + String.valueOf(j);
                     }
 
                 }
                 // down
                 r = i;
-                c = j+1;
-                if(c < col ){
-                    if(cost[r][c] > cost[i][j] + grid[r][c]){
+                c = j + 1;
+                if (c < col) {
+                    if (cost[r][c] > cost[i][j] + grid[r][c]) {
                         cost[r][c] = cost[i][j] + grid[r][c];
                         visit[r][c] = true;
-                        path[r][c] = String.valueOf(i)+"-"+String.valueOf(j);
+                        path[r][c] = String.valueOf(i) + "-" + String.valueOf(j);
                     }
 
                 }
             }
         }
 
-        System.out.println(cost[row-1][col-1]);
+        System.out.println(cost[row - 1][col - 1]);
         // System.out.println(Arrays.deepToString(cost));
     }
 }

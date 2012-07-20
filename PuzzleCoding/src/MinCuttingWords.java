@@ -3,7 +3,7 @@ import java.util.Arrays;
 
 public class MinCuttingWords {
 
-    public static void minCuttingWords(List<String> dict, String tar_str){
+    public static void minCuttingWords(List<String> dict, String tar_str) {
         int tar_str_len = tar_str.length();
         int[] cost = new int[tar_str_len + 1];
         cost[0] = 0;

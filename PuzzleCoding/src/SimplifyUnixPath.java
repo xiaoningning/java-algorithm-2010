@@ -1,21 +1,19 @@
 import java.util.Stack;
 
 /**
- *
  * Given an absolute path for a file (Unix-style), simplify it.
-
- For example,
- path = "/home/", => "/home"
- path = "/a/./b/../../c/", => "/c"
- Corner Cases:
- Did you consider the case where path = "/../"?
- In this case, you should return "/".
- Another corner case is the path might contain multiple slashes '/' together, such as "/home//foo/".
- In this case, you should ignore redundant slashes and return "/home/foo".
-
+ * <p/>
+ * For example,
+ * path = "/home/", => "/home"
+ * path = "/a/./b/../../c/", => "/c"
+ * Corner Cases:
+ * Did you consider the case where path = "/../"?
+ * In this case, you should return "/".
+ * Another corner case is the path might contain multiple slashes '/' together, such as "/home//foo/".
+ * In this case, you should ignore redundant slashes and return "/home/foo".
  */
 public class SimplifyUnixPath {
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         String s1 = "//../";
         System.out.println(simplifyUnixPath(s1));
@@ -31,41 +29,38 @@ public class SimplifyUnixPath {
 
     }
 
-    public static String simplifyUnixPath(String path){
+    public static String simplifyUnixPath(String path) {
         Stack<String> pathStack = new Stack<String>();
         String dir = "";
 
-        for(int i =0; i<path.length(); i++){
+        for (int i = 0; i < path.length(); i++) {
             char c = path.charAt(i);
-            if(c != '/'){
+            if (c != '/') {
                 dir += c;
                 continue;
             }
             // only "/"
-            if(dir.length() == 0)
+            if (dir.length() == 0)
                 continue;
-            if(dir.charAt(0) == '.'){
-                if(dir.length() >1){
-                    if(dir.charAt(1) == '.'){
+            if (dir.charAt(0) == '.') {
+                if (dir.length() > 1) {
+                    if (dir.charAt(1) == '.') {
                         // dir /..ab/
-                        if(dir.length()>2){
+                        if (dir.length() > 2) {
                             pathStack.push(dir);
-                        }
-                        else {
+                        } else {
                             // dir /../
-                            if(pathStack.size()>0){
+                            if (pathStack.size() > 0) {
                                 pathStack.pop();
                             }
                         }
-                    }
-                    else {
+                    } else {
                         // dir /.ab/
                         pathStack.push(dir);
                     }
                 }
                 // current path, do nothing
-            }
-            else { // one dir
+            } else { // one dir
                 pathStack.push(dir);
             }
 
@@ -74,10 +69,10 @@ public class SimplifyUnixPath {
         }
 
         String finalPath = "";
-        for(int i =0; i < pathStack.size();i++){
+        for (int i = 0; i < pathStack.size(); i++) {
             finalPath += "/" + pathStack.get(i);
         }
-        if(pathStack.size() == 0)
+        if (pathStack.size() == 0)
             finalPath = "/";
 
         return finalPath;

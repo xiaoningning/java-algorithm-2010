@@ -105,11 +105,10 @@ public class Queen {
         if (n == N) {
             System.out.println(Arrays.toString(q));
             printQueens(q);
-        }
-        else {
+        } else {
             for (int i = 0; i < N; i++) {
                 q[n] = i;
-                if (isConsistent(q, n)) enumerate(q, n+1);
+                if (isConsistent(q, n)) enumerate(q, n + 1);
             }
         }
     }

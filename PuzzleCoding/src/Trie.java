@@ -174,17 +174,17 @@ public class Trie {
         return words;
     }
 
-    public void printTrie(){
+    public void printTrie() {
         Queue<Node> queue = new LinkedList<Node>(root.children);
         Queue<Node> nextQueue = new LinkedList<Node>();
 
-        while( !queue.isEmpty()){
+        while (!queue.isEmpty()) {
 
             Node n = queue.poll();
             nextQueue.addAll(n.children);
-            System.out.print(n.character +" ");
+            System.out.print(n.character + " ");
 
-            if(queue.isEmpty()){
+            if (queue.isEmpty()) {
                 queue.addAll(nextQueue);
                 nextQueue.clear();
                 System.out.println();

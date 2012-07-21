@@ -17,7 +17,8 @@ public class MergeSortedArray {
             value = v;
             arrayIndex = index;
         }
-        public String toString(){
+
+        public String toString() {
             return String.valueOf(value);
         }
     } // end of ArrayNode
@@ -44,7 +45,7 @@ public class MergeSortedArray {
             ArrayNode min = heap.get(1);
             heap.remove(min);
 
-            if(heap.size() != 1){
+            if (heap.size() != 1) {
                 shiftDown(1);
             }
             return min;
@@ -137,12 +138,12 @@ public class MergeSortedArray {
                 }
             }
 
-            if(!done)
+            if (!done)
                 heap.insert(new ArrayNode(nextQueue.poll(), minNode.arrayIndex));
 
         }
-        while(!heap.isEmpty())
-             result.add(heap.removeMin().value);
+        while (!heap.isEmpty())
+            result.add(heap.removeMin().value);
 
         return result;
     }

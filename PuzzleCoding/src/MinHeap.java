@@ -13,7 +13,7 @@ public class MinHeap {
     }
 
     public void insert(int value) {
-        if (current == heap.length - 1) {
+        if (current == maxSize) {
             throw new RuntimeException("Heap is full!");
         }
         heap[++current] = value;

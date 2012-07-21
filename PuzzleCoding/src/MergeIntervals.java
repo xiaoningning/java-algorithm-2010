@@ -52,15 +52,15 @@ public class MergeIntervals {
 
         for (int i = 1; i < intervalsArrayList.size(); i++) {
             MergeIntervals prev = result.get(0);
-            MergeIntervals cur = intervalsArrayList.get(i);
+            MergeIntervals curr = intervalsArrayList.get(i);
 
-            if (prev.end < cur.start) {
-                result.add(0, cur);
+            if (prev.end < curr.start) {
+                result.add(0, curr);
             } else {
-                if (prev.end < cur.end)
-                    prev.end = cur.end;
-                if (prev.start > cur.start)
-                    prev.start = cur.start;
+                if (prev.end < curr.end)
+                    prev.end = curr.end;
+                if (prev.start > curr.start)
+                    prev.start = curr.start;
                 result.remove(0);
                 result.add(0, prev);
             }

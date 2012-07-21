@@ -46,7 +46,7 @@ public class MergeSortedArray {
             if (isEmpty())
                 throw new RuntimeException("heap is empty");
 
-            System.out.println(heap.toString());
+            // System.out.println(heap.toString());
             ArrayNode min = heap.get(1);
             heap.remove(min);
 

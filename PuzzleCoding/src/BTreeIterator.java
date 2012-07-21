@@ -74,9 +74,12 @@ public class BTreeIterator {
 
     public Node postOrderNext() {
         if (hasNext()) {
-            if (stack.peek().right == null || leftVisitedStack.contains(stack.peek().right)) {
+            if (stack.peek().right == null ||
+                    leftVisitedStack.contains(stack.peek().right)) {
+
                 Node node = stack.pop();
                 return node;
+
             } else {
                 leftVisitedStack.push(stack.peek().right);
                 pushLeft(stack.peek().right);

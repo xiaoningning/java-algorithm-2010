@@ -121,7 +121,7 @@ public class Trie {
 
         }
 
-    }
+    } // end of TrieNode class
 
     private Node root;
 
@@ -200,6 +200,12 @@ public class Trie {
 
         root.printTrie();
         System.out.println(list.toString());
+
+        System.out.println(root.contains("ppl", false));
+        System.out.println(root.contains("arm", true));
+        System.out.println(root.contains("appl", false));
+
+
     }
 
 }

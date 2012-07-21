@@ -4,12 +4,15 @@ import java.util.Stack;
 public class BTreeIterator {
     private Node root;
     private Stack<Node> stack;
+    private Stack<Node> preOrderStack;
     private Stack<Node> leftVisitedStack;
 
     public BTreeIterator(Node n) {
         root = n;
         stack = new Stack<Node>();
         leftVisitedStack = new Stack<Node>();
+        preOrderStack = new Stack<Node>();
+        preOrderStack.push(root);
         pushLeft(root);
     }
 
@@ -49,14 +52,19 @@ public class BTreeIterator {
         }
     }
 
+
+    public boolean hasNextPreOrder(){
+        return !preOrderStack.isEmpty();
+    }
+
     public Node preOrderNext() {
-        if (hasNext()) {
-            Node node = stack.pop();
+        if (!preOrderStack.isEmpty()) {
+            Node node = preOrderStack.pop();
 
             if (node.right != null)
-                stack.push(node.right);
+                preOrderStack.push(node.right);
             if (node.left != null)
-                stack.push(node.left);
+                preOrderStack.push(node.left);
 
             return node;
         } else {

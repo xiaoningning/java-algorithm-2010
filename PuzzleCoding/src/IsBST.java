@@ -35,6 +35,13 @@ public class IsBST {
         }
         System.out.println();
 
+        treeIterator.reset();
+        while (treeIterator.hasNextPreOrder()){
+            Node  next = treeIterator.preOrderNext();
+            System.out.print(next.value + " ");
+        }
+        System.out.println();
+
 
     }
 

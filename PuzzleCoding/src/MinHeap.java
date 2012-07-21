@@ -98,7 +98,7 @@ public class MinHeap {
     }
 
     public static void main(String[] args) {
-        int[] a = new int[]{5, 3, 1, 0, 6, 7, 2};
+        int[] a = new int[]{5, 3, 4, 1, 0, 6, 7, 2};
         MinHeap minHeap = new MinHeap(a.length);
         for (int i = 0; i < a.length; i++) {
             minHeap.insert(a[i]);

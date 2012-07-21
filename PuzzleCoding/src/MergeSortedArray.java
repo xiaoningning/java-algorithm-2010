@@ -35,6 +35,9 @@ public class MergeSortedArray {
         }
 
         public void insert(ArrayNode node) {
+            if(node == null)
+                throw new RuntimeException("can't insert null node");
+
             heap.add(node);
             shiftUp(heap.size() - 1);
         }
@@ -42,6 +45,8 @@ public class MergeSortedArray {
         public ArrayNode removeMin() {
             if (isEmpty())
                 throw new RuntimeException("heap is empty");
+
+            System.out.println(heap.toString());
             ArrayNode min = heap.get(1);
             heap.remove(min);
 
@@ -63,7 +68,7 @@ public class MergeSortedArray {
             while (2 * k <= heap.size() - 1) {
                 int i = 2 * k; //left
                 int j = i + 1; //right
-                if (i < heap.size() - 1 && greater(j, i)) {
+                if (i < heap.size() - 1 && greater(i, j)) {
                     i++;
                 }
                 if (greater(i, k)) break;
@@ -97,7 +102,8 @@ public class MergeSortedArray {
         Integer[][] arrays = new Integer[][]{
                 {1, 5, 9},
                 {4, 8, 10},
-                {6, 11}
+                {6, 11},
+                {2,7}
         };
 
         ArrayList<Integer> result = mergeSortedArray(arrays);

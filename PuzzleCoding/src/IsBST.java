@@ -21,6 +21,21 @@ public class IsBST {
         System.out.println(isBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE));
         System.out.println(isBST1(root, Integer.MIN_VALUE));
 
+        BTreeIterator treeIterator = new BTreeIterator(root);
+        while (treeIterator.hasNext()){
+            Node  next = treeIterator.inOrderNext();
+            System.out.print(next.value + " ");
+        }
+        System.out.println();
+
+        treeIterator.reset();
+        while (treeIterator.hasNext()){
+            Node  next = treeIterator.postOrderNext();
+            System.out.print(next.value + " ");
+        }
+        System.out.println();
+
+
     }
 
     public static boolean isBST(Node node, int min, int max) {

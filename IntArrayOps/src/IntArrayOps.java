@@ -12,6 +12,7 @@ public class IntArrayOps {
             a[i] = 0 + (int) (Math.random() * length);
         }
 
+
         System.out.println(Arrays.toString(a));
 
         int[] a1 = new int[]{7, 8, 9, 10, 13, 0, 1, 2, 0, 9, 13, 14};

@@ -30,12 +30,12 @@ public class BTreeIterator {
         throw new java.lang.UnsupportedOperationException("remove");
     }
 
-    public Node inOrderNext() {
-        return next();
+    public Node next() {
+        return inOrderNext();
     }
 
     // in-order
-    public Node next() {
+    public Node inOrderNext() {
         if (hasNext()) {
             Node node = stack.pop();
             pushLeft(node.right);

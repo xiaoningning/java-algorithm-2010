@@ -79,12 +79,37 @@ public class MathOps {
 
     }
 
+    public static int divide1(int dividend, int divisor) {
+        assert (divisor != 0);
+
+        boolean bNeg = false;
+        if ((dividend < 0 && divisor > 0) || (dividend > 0 && divisor < 0))
+            bNeg = true;
+        long la = dividend;
+        long ula = la < 0 ? -la : la;
+        long lb = divisor;
+        long ulb = lb < 0 ? -lb : lb;
+
+        int msb = 0;
+        while ((ulb << msb) < ula) msb++;
+
+        int q = 0;
+        for (int i = msb; i >= 0; i--) {
+            if ((ulb << i) > ula) continue;
+            q |= (1 << i);
+            ula -= (ulb << i);
+        }
+        return bNeg ? -q : q;
+    }
+
     public static void main(String[] args) {
 
         System.out.println("add: " + add(6, -2));
         System.out.println("sqrt: " + sqrt(120.0));
         System.out.println("pow: " + pow(2.0, -3));
         System.out.println("divide: " + divide(-21474, 3));
+        System.out.println("divide: " + divide1(-10, 3));
+
 
     }
 }

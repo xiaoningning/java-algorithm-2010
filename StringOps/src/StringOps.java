@@ -204,7 +204,7 @@ public class StringOps {
     }
 
     public static boolean isRexMatch(String s1, String s2) {
-        if (s1 == null || s1.isEmpty() || s2 == null) return false;
+        if (s1 == null || s2 == null) return false;
         if (s2.isEmpty()) return s2.isEmpty();    // "" , ""
 
 

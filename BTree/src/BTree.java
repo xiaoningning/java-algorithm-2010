@@ -255,6 +255,7 @@ public class BTree {
         return node;
     }
 
+    // left, root, right
     public static BTree inorderSuc(BTree root, int k) {
         if (root == null)
             return null;
@@ -282,7 +283,7 @@ public class BTree {
 
         }
     }
-
+    //root, left, right
     public static BTree preorderSuc(BTree node, int k) {
         if (node == null)
             return null;
@@ -322,7 +323,7 @@ public class BTree {
 
 
     }
-
+    // left, right, root
     public static BTree postorderSuc(BTree root, int k) {
         if (root == null)
             return null;

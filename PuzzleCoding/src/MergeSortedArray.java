@@ -68,6 +68,7 @@ public class MergeSortedArray {
             while (2 * k <= heap.size() - 1) {
                 int i = 2 * k; //left
                 int j = i + 1; //right
+                //find the smallest of left and right
                 if (i < heap.size() - 1 && greater(i, j)) {
                     i++;
                 }

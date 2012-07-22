@@ -3,7 +3,7 @@ import java.util.Arrays;
 
 public class allSubsets{
     public static void main(String[] args){
-        int[] a = {1,2,3,4};
+        int[] a = {1,2,3};
         ArrayList<ArrayList<Integer>> allsubsets = new ArrayList<ArrayList<Integer>>();
         System.out.println("take subset:");
         allsubsets = genSubsets(a, 0);

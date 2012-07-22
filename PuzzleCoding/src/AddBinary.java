@@ -15,6 +15,8 @@ public class AddBinary {
         result = Integer.parseInt(s1, 2) + Integer.parseInt(s2, 2);
         System.out.println(Integer.toBinaryString(result));
 
+        System.out.print(~(0 & -1));
+
 
     }
 
@@ -31,10 +33,12 @@ public class AddBinary {
     public static String toBinary(int integer) {
         StringBuilder builder = new StringBuilder();
         int temp;
-        while (integer > 0) {
+        while (integer >= 0) {
             temp = integer;
             integer = (temp >> 1);
             builder.append(temp % 2);
+            if(integer ==0)
+                break;
         }
         return builder.reverse().toString();
     }

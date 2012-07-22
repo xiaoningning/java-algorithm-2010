@@ -84,10 +84,12 @@ public class GrayCode {
     public static String toBinaryString(int integer) {
         StringBuilder builder = new StringBuilder();
         int temp;
-        while (integer > 0) {
+        while (integer >= 0) {
             temp = integer;
             integer = (temp >> 1);
-            builder.append(temp % 2);
+            builder.append(String.valueOf(temp % 2));
+            if(integer ==0)
+                break;
         }
         return builder.reverse().toString();
     }

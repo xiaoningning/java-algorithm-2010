@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * a node class for tree
  */
@@ -39,5 +42,30 @@ public class Node {
             size += right.size();
         }
         return size + 1;
+    }
+
+    public void printBT(){
+        Queue<Node> current = new LinkedList<Node>();
+        Queue<Node> next = new LinkedList<Node>();
+
+        current.add(this);
+        System.out.println(this.value);
+        while (!current.isEmpty()){
+            Node n = current.poll();
+            if(n.left != null){
+                System.out.print(n.left.value + " ");
+                next.add(n.left);
+            }
+            if(n.right != null){
+                System.out.print(n.right.value + " ");
+                next.add(n.right);
+            }
+            if(current.isEmpty()){
+                current.addAll(next);
+                next.clear();
+                System.out.println();
+            }
+        }
+
     }
 }

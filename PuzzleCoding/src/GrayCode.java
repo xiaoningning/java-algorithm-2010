@@ -84,7 +84,7 @@ public class GrayCode {
     public static String toBinaryString(int integer) {
         StringBuilder builder = new StringBuilder();
         int temp;
-        while (integer >= 0) {
+        while (integer >= 0) { // don't 0 case
             temp = integer;
             integer = (temp >> 1);
             builder.append(String.valueOf(temp % 2));

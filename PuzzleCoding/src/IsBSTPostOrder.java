@@ -4,7 +4,7 @@
  */
 public class IsBSTPostOrder {
     public static void main(String[] args) {
-        int[] a = new int[]{0, 2, 1, 4, 5, 3};
+        int[] a = new int[]{0, 2, 1, 9, 12, 10, 6};
         boolean postOrder = isBstPostOrder(a, 0, a.length - 1);
         System.out.println(postOrder);
     }
@@ -12,8 +12,15 @@ public class IsBSTPostOrder {
     public static boolean isBstPostOrder(int[] a, int left, int right) {
         if (left > right)
             return false;
-        if (right - left == 1 || right == left)
+        if ( right == left)
             return true;
+        if(right - left == 1){
+            if(a[left] < a[right])
+                return false;
+            else
+                return true;
+        }
+
         int i = left;
         while (a[i] < a[right])
             i++;

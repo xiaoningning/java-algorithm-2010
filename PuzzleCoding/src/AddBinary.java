@@ -30,7 +30,7 @@ public class AddBinary {
 
     public static String toBinary(int integer) {
         StringBuilder builder = new StringBuilder();
-        int temp = 0;
+        int temp;
         while (integer > 0) {
             temp = integer;
             integer = (temp >> 1);

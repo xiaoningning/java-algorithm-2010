@@ -323,7 +323,7 @@ public class IntArrayOps {
 
             if (a[memo.getLast()] <= a[i]) {
                 path[i] = memo.getLast(); // record the index of previous smaller element
-                memo.add(i);  // record the largest element
+                memo.add(i);  // record the index of the largest element
             } else {
                 int s, e;
                 for (s = 0, e = memo.size() - 1; s < e; ) {

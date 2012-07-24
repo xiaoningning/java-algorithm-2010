@@ -35,12 +35,12 @@ public class TreeLeafPath {
     }
 
     public static void printPath(Stack<TreeLeafPath> s) {
-        List<TreeLeafPath> list = s.subList(0, s.size());
-        for (int i = 0; i < list.size(); i++) {
-            if (i + 1 == list.size())
-                System.out.print(list.get(i).value);
+
+        for (int i = 0; i < s.size(); i++) {
+            if (i + 1 == s.size())
+                System.out.print(s.get(i).value);
             else
-                System.out.print(list.get(i).value + "->");
+                System.out.print(s.get(i).value + "->");
         }
         System.out.println();
     }

@@ -1,5 +1,5 @@
 /**
- * mplement regular expression matching with support for '.' and '*'.
+ * implement regular expression matching with support for '.' and '*'.
  * '.' Matches any single character.
  * '*' Matches zero or more of the preceding element.
  * <p/>
@@ -45,7 +45,7 @@ public class RegexMatch {
             }
         }
 
-        // p is not empty, at least 1
+        // p is not empty, then at least 1
         if (p.charAt(0) == '.') {
             if (s.isEmpty()) return false; // s:"", p:"."
             else return isMatch(s.substring(1), p.substring(1));

@@ -15,7 +15,6 @@ public class longPalindromicString {
             String l2 = getCenterAroundString(s, i, i + 1);
             if (l2.length() > longPalindromicString.length())
                 longPalindromicString = l2;
-
         }
 
         System.out.println(longPalindromicString);
@@ -23,14 +22,12 @@ public class longPalindromicString {
 
     public static String getCenterAroundString(String s, int l, int r) {
 
-
         while (l >= 0 && r < s.length()) {
             if (s.charAt(r) == s.charAt(l)) {
                 r++;
                 l--;
             } else
                 break;
-
         }
 
         //l = (l < 0) ? 0 : l + 1;

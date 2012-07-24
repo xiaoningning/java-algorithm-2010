@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 
-
 /*
 Given a set of candidate numbers (C) and a target number (T),
 find all unique combinations in C where the candidate numbers sums to T.
@@ -19,7 +18,7 @@ A solution set is:
 */
 public class CombinationSum {
     public static void main(String[] args) {
-        int[] a = new int[]{2, 3, 6, 7, 10};
+        int[] a = new int[]{2, 3, 5, 6, 7, 10};
         int target = 10;
 
         ArrayList<ArrayList<Integer>> results = new ArrayList<ArrayList<Integer>>();
@@ -36,7 +35,7 @@ public class CombinationSum {
                                       ArrayList<Integer> r,
                                       ArrayList<ArrayList<Integer>> results) {
 
-
+        // find it: target == 0
         if (target == 0) {
             results.add(new ArrayList<Integer>(r));
             return;

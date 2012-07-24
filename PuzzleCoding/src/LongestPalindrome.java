@@ -9,6 +9,8 @@ public class LongestPalindrome {
 
         String longestPalindrome = longestPalindrome(s);
         System.out.println(longestPalindrome);
+        String longestPalindrome1 = longestPalindrome1(s);
+        System.out.println(longestPalindrome1);
     }
 
     public static String preProcess(String s) {
@@ -55,6 +57,36 @@ public class LongestPalindrome {
 
         int start = (centerIndex - maxLength) / 2;
         return s.substring(start, start + maxLength);
+
+    }
+
+    public static String longestPalindrome1(String s){
+        String longPalindromicString = s.substring(0, 1);
+
+        for (int i = 0; i < s.length(); i++) {
+            String l1 = getCenterAroundString(s, i, i);
+            if (l1.length() > longPalindromicString.length())
+                longPalindromicString = l1;
+            String l2 = getCenterAroundString(s, i, i + 1);
+            if (l2.length() > longPalindromicString.length())
+                longPalindromicString = l2;
+        }
+        return longPalindromicString;
+    }
+
+    public static String getCenterAroundString(String s, int left, int right) {
+
+        while (left >= 0 && right < s.length()) {
+            if (s.charAt(right) == s.charAt(left)) {
+                right++;
+                left--;
+            } else
+                break;
+        }
+        //left = (left < 0) ? 0 : left + 1;
+        left = left+1;
+        return s.substring(left, right);
+
 
     }
 }

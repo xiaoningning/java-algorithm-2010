@@ -17,7 +17,7 @@ public class LargestBSTSubtree {
             min = min_value;
             maxNode = number;
         }
-    }
+    } // end of class LargestBST
 
     public static void main(String[] args) {
         Node root = new Node(10);
@@ -42,7 +42,7 @@ public class LargestBSTSubtree {
         root.insert(node14);
 
         int result = largestBSTSubtree(root);
-        System.out.println(result);
+        System.out.println("largest bst (may not include all children): " + result);
 
         LargestBST largeBST = largestBSTSubtree1(root);
         if (largeBST != null)
@@ -61,14 +61,10 @@ public class LargestBSTSubtree {
             return 0;
         if (node.left == null && node.right == null)
             return 1;
-        int leftNode = 0;
-        int rightNode = 0;
-        if (node.left != null) {
-            leftNode = largestBSTSubtree(node.left);
-        }
-        if (node.right != null) {
-            rightNode = largestBSTSubtree(node.right);
-        }
+
+        int leftNode = largestBSTSubtree(node.left);
+        int rightNode = largestBSTSubtree(node.right);
+
         if (node.left != null && node.right != null) {
             if ((node.left.value < node.value) && (node.right.value > node.value)) {
                 return leftNode + rightNode + 1;
@@ -76,6 +72,8 @@ public class LargestBSTSubtree {
                 return leftNode + 1;
             } else if (node.right.value > node.value) {
                 return rightNode + 1;
+            } else {
+                return Math.max(rightNode, leftNode);
             }
         } else if (node.left != null) {
             if (node.left.value < node.value)
@@ -88,8 +86,6 @@ public class LargestBSTSubtree {
             else
                 return rightNode;
         }
-        return Math.max(rightNode, leftNode);
-
     }
 
     // Given a binary tree, find the largest Binary Search Tree (BST),
@@ -102,15 +98,8 @@ public class LargestBSTSubtree {
             return new LargestBST(node, node.size(), node.value, node.value);
         }
 
-        LargestBST leftNode = null;
-        if (node.left != null) {
-            leftNode = largestBSTSubtree1(node.left);
-        }
-
-        LargestBST rightNode = null;
-        if (node.right != null) {
-            rightNode = largestBSTSubtree1(node.right);
-        }
+        LargestBST leftNode  = largestBSTSubtree1(node.left);
+        LargestBST rightNode = largestBSTSubtree1(node.right);
 
         if (leftNode != null && rightNode != null) {
             if ((node.value > leftNode.max && node.left == leftNode.node)
@@ -158,15 +147,8 @@ public class LargestBSTSubtree {
             return new LargestBST(node, node.size(), node.value, node.value);
         }
 
-        LargestBST leftNode = null;
-        if (node.left != null) {
-            leftNode = largestBSTSubtree2(node.left);
-        }
-
-        LargestBST rightNode = null;
-        if (node.right != null) {
-            rightNode = largestBSTSubtree2(node.right);
-        }
+        LargestBST leftNode = largestBSTSubtree2(node.left);
+        LargestBST rightNode = largestBSTSubtree2(node.right);
 
         if (leftNode != null && rightNode != null) {
             if ((node.value > leftNode.max && node.left == leftNode.node)

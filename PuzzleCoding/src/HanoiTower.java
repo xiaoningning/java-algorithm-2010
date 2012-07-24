@@ -54,7 +54,7 @@ public class HanoiTower {
     }
 
     public static void main(String[] args) {
-        int N = 4;
+        int N = 3;
         HanoiTower[] towers = new HanoiTower[N];
         for (int i = 1; i <= N; i++) {
             towers[i - 1] = new HanoiTower(i);

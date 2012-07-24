@@ -9,8 +9,8 @@ import java.util.ArrayList;
  */
 public class AddTwoNumber {
     public static void main(String[] args) {
-        int[] a = {2, 4, 3};
-        int[] b = {6, 4};
+        int[] a = {2, 9, 3};
+        int[] b = {9, 9};
         ArrayList<Integer> result = addTwoNumber(a, b);
         System.out.println(result);
     }
@@ -25,7 +25,7 @@ public class AddTwoNumber {
         while (l1 >= 0 && l2 >= 0) {
             int tmp = n1[l1--] + n2[l2--] + carry;
             result.add(0, tmp % 10);
-            if ((tmp + carry) / 10 >= 1)
+            if (tmp / 10 >= 1)
                 carry = 1;
             else
                 carry = 0;
@@ -37,7 +37,7 @@ public class AddTwoNumber {
         while (len >= 0) {
             int tmp = n[len--] + carry;
             result.add(0, tmp % 10);
-            if ((tmp + carry) / 10 >= 1)
+            if (tmp / 10 >= 1)
                 carry = 1;
             else
                 carry = 0;

@@ -102,7 +102,7 @@ public class MergeSortedArray {
     public static void main(String[] args) {
         Integer[][] arrays = new Integer[][]{
                 {1, 5, 9},
-                {4, 8, 10},
+                {4, 8, 10,13},
                 {6, 11},
                 {2,7}
         };
@@ -146,7 +146,7 @@ public class MergeSortedArray {
             }
 
             if (!done)
-                heap.insert(new ArrayNode(nextQueue.poll(), minNode.arrayIndex));
+                heap.insert(new ArrayNode(nextQueue.poll(), nextIndex));
 
         }
         while (!heap.isEmpty())

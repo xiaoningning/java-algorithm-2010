@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * <p/>
  * e.g [3 2 1 0  5 4 6] & [3 5 2 6 4 1 0]
  * when the BST is formed by taking the elements from the left,
- * both BST turn out to be same.
+ * both BST turn out to be same. (in-order)
  * <p/>
  * 3
  * /  \
@@ -50,6 +50,7 @@ public class CompareArrayBST {
         ArrayList<Integer> bSmaller = new ArrayList<Integer>();
         ArrayList<Integer> bLarger = new ArrayList<Integer>();
 
+        //a[0] and b[0] are the roots of trees.
         for (int i = 1; i < a.length; i++) {
             if (a[i] < a[0])
                 aSmaller.add(a[i]);

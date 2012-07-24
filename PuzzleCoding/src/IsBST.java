@@ -28,8 +28,7 @@ public class IsBST {
         }
         System.out.println();
 
-        treeIterator.reset();
-        while (treeIterator.hasNext()){
+        while (treeIterator.hasNextPostOrder()){
             Node  next = treeIterator.postOrderNext();
             System.out.print(next.value + " ");
         }
@@ -41,12 +40,10 @@ public class IsBST {
             System.out.print(next.value + " ");
         }
         System.out.println();
-
-
     }
 
     public static boolean isBST(Node node, int min, int max) {
-        if ((node == null)) {
+        if (node == null) {
             return true;
         }
         if ((min < node.value) && (node.value < max)) {
@@ -55,11 +52,10 @@ public class IsBST {
         } else {
             return false;
         }
-
     }
 
     public static boolean isBST1(Node node, int prev) {
-        if ((node == null)) {
+        if (node == null) {
             return true;
         }
         if (isBST1(node.left, prev)) {

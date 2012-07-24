@@ -6,16 +6,15 @@
  */
 public class LongestStringWithoutRepeat {
     public static void main(String[] args) {
-        String s1 = "abcabcbb";
+        String s1 = "abcabcdbb";
         System.out.println(longestStringWithoutRepeat(s1));
         String s2 = "bbb";
         System.out.println(longestStringWithoutRepeat(s2));
-
     }
 
     public static String longestStringWithoutRepeat(String s) {
 
-        boolean[] exist = new boolean[256];
+        boolean[] exist = new boolean[256]; //256 ASCII
         int start = 0, j = 0, maxStart = 0, maxLen = 0, n = s.length();
 
         while (j < n) {

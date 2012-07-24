@@ -23,7 +23,6 @@ public class BSTtoDLL {
         Node node12 = new Node(12);
         Node node14 = new Node(14);
 
-
         root.insert(node5);
         root.insert(node6);
         root.insert(node15);
@@ -36,7 +35,6 @@ public class BSTtoDLL {
         printDll(dll);
 
         bstToDllinPlace(root);
-
         printDll(head);
 
     }
@@ -91,10 +89,8 @@ public class BSTtoDLL {
         return dll;
     }
 
-
-    static Node prev, head;
-
     // in place approach
+    static Node prev, head;
     public static void bstToDllinPlace(Node p) {
         if (p == null)
             return;
@@ -106,9 +102,9 @@ public class BSTtoDLL {
         if (prev == null) {
             head = p;
         } else {
-
             prev.right = p;
         }
+
         System.out.print("parent: " + p.value + " prev: ");
         nodeToString(prev);
         System.out.print(" head: ");
@@ -135,7 +131,6 @@ public class BSTtoDLL {
     public static void nodeToString(Node n) {
         if (n == null) {
             System.out.println("null");
-
         } else {
             System.out.println(n.value);
         }

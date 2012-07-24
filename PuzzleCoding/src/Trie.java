@@ -41,7 +41,6 @@ public class Trie {
                 children.add(child);
             } else {
                 child = tmp;
-
             }
 
             if (w.length() > 1) {
@@ -113,7 +112,6 @@ public class Trie {
                 word.append(c.character);
                 if (c.terminated) {
                     words.add(word.toString());
-
                 } else {
                     c.getAllWords(word, words);
                 }

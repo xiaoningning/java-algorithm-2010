@@ -17,6 +17,8 @@ public class ClimbStairs {
     public static int climbStairs(int n) {
         if (0 < n && n <= 1) return n;
         else if (n <= 0) return 1;
-        else return climbStairs(n - 1) + climbStairs(n - 2) + climbStairs(n - 3); // add the last step 1 or 2 or 3.
+        else return climbStairs(n - 1)
+                    + climbStairs(n - 2)
+                    + climbStairs(n - 3); // add the last step 1 or 2 or 3.
     }
 }

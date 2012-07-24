@@ -7,7 +7,7 @@
 */
 public class AddBinary {
     public static void main(String[] args) {
-        String s1 = "11";
+        String s1 = "10";
         String s2 = "110";
 
         int result = string2Integer(s1, 2) + string2Integer(s2, 2);
@@ -15,17 +15,14 @@ public class AddBinary {
         result = Integer.parseInt(s1, 2) + Integer.parseInt(s2, 2);
         System.out.println(Integer.toBinaryString(result));
 
-        System.out.print(~(0 & -1));
-
-
     }
 
     public static int string2Integer(String s, int code) {
         int len = s.length();
         int result = 0;
-        for (int i = 0; i < len; ++i) {
-            int temp = Integer.valueOf(s.substring(len - i - 1, len - i));
-            result += Math.pow(code, i) * temp;
+        for (int i = len -1 ; i >=0 ; i--) {
+            int temp = Integer.valueOf(s.charAt(i)-'0');
+            result += Math.pow(code, len-1-i) * temp;
         }
         return result;
     }

@@ -4,11 +4,13 @@ public class CombinationPermutation {
     public static void main(String[] args) {
 
         String s = "abcd";
-        int k = 2;
+        int k = 3;
         System.out.println("Combination");
         combinationK("", s, k);
         System.out.println("Permutation");
         permutationK(s.toCharArray(), s.length(), k);
+        System.out.println("Permutation1");
+        permutationK1("", s, k);
         System.out.println("MoveInOut");
         move(s.toCharArray(), s.length(), new ArrayList<String>(), true);
 
@@ -21,6 +23,15 @@ public class CombinationPermutation {
         }
         for (int i = 0; i < s.length(); ++i)
             combinationK(prefix + s.charAt(i), s.substring(i + 1), K - 1);
+    }
+
+    public static void permutationK1(String prefix, String s, int K) {
+        if (K == 0) {
+            System.out.println(prefix);
+            return;
+        }
+        for (int i = 0; i < s.length(); ++i)
+            permutationK1(prefix + s.charAt(i), s.substring(0,i)+s.substring(i + 1), K - 1);
     }
 
     public static void permutationK(char[] s, int n, int K) {

@@ -13,18 +13,16 @@ public class GenerateParentheses {
             System.out.println(String.valueOf(prefix));
             return;
         } else {
-            if (left > 0 && right >= 0) {
+            if (left > 0 ) {
                 prefix[level] = '(';
                 generateParentheses(prefix, left - 1, right, level + 1);
             }
-            if (right > 0 && left >= 0) {
+            if (right > 0 ) {
                 prefix[level] = ')';
                 generateParentheses(prefix, left, right - 1, level + 1);
             }
         }
-
     }
-
 
     public static boolean isGoodParentheses(char[] s) {
 

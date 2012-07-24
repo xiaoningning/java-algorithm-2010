@@ -18,7 +18,7 @@ public class MinCuttingWords {
                 if (dict.indexOf(tar_str.substring(possible_cut, i)) != -1) {
 
                     // System.out.println(tar_str.substring(possible_cut, i));
-                    //if it is better than existing cut, store it
+                    // if it is better than existing cut, store it
                     if (cost[possible_cut] + 1 < cost[i])
                         cost[i] = cost[possible_cut] + 1;
                 }

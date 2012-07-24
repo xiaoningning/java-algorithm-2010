@@ -15,12 +15,11 @@ public class JumpGame {
 
         jumpGame(a1);
         jumpGame(a2);
-
     }
 
     public static void jumpGame(int[] a) {
         if (a.length == 0) return;
-
+        //track the index of previous step
         int[] previousStep = new int[a.length];
 
         for (int i = 0; i < previousStep.length; i++)

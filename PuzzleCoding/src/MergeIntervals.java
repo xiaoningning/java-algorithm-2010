@@ -24,7 +24,7 @@ public class MergeIntervals {
             start = s;
             end = e;
         } else {
-            throw new RuntimeException("start < end");
+            throw new RuntimeException("start must be < end");
         }
     }
 

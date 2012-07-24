@@ -15,15 +15,14 @@ public class IsBSTPostOrder {
         if ( right == left)
             return true;
         if(right - left == 1){
-            if(a[left] < a[right])
-                return false;
-            else
-                return true;
+            return true; //[left, root] or [root, right]
         }
 
         int i = left;
-        while (a[i] < a[right])
-            i++;
+        for (; i <= right; i++) {
+            if (a[i] > a[right])
+                break;
+        }
 
         for (int j = i; j <= right; j++) {
             if (a[j] < a[right])

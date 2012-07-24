@@ -20,9 +20,7 @@ public class IntToString {
                 s.insert(0, (char) ('A' + n % 26 - 1));
             }
             n /= 26;
-
         }
-
         return s.toString();
     }
 }

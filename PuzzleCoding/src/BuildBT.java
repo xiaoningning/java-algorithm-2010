@@ -40,6 +40,7 @@ public class BuildBT {
         if (in.length == 0 || pre.length != in.length)
             return null;
 
+        // get index of element of inOrder
         HashMap<Integer, Integer> index = new HashMap<Integer, Integer>();
         for (int i = 0; i < in.length; i++) {
             index.put(in[i], i);

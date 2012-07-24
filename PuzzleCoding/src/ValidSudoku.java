@@ -25,8 +25,7 @@ public class ValidSudoku {
     }
 
     public static boolean isValidSudoku(char[][] board) {
-        boolean[] checked = new boolean[board.length];
-
+        boolean[]  checked;
         //validate row
         for (int i = 0; i < board.length; i++) {
             checked = new boolean[board.length];

@@ -15,10 +15,11 @@
 public class DecodeNumber {
     public static void main(String[] args) {
         String s1 = "11";
-        String s2 = "2019";
+        String s2 = "2119";
+        String s3 = "116";
         decodeNumber(s1);
         decodeNumber(s2);
-
+        decodeNumber(s3);
     }
 
     public static void decodeNumber(String s) {
@@ -41,13 +42,17 @@ public class DecodeNumber {
         for (int i = 1; i < len; i++) {
             char p = s.charAt(i - 1);
             char c = s.charAt(i);
-            if (p == '0' && c != '0' && ways[i - 1] == 0) {
-                ways[i - 1] = 1;
+            if (p !='0' && ways[i - 1] == 0)
+                ways[i] = 1;
+            if ( ways[i-1] != 0) {
+                ways[i] = ways[i-1];
             }
             if (p == '1' || (p == '2' && c <= '6')) {
-                ways[i] = ways[i - 1] * 2;
-            } else
-                ways[i] = ways[i - 1];
+                if(i>=2)
+                    ways[i] = ways[i - 2] + ways[i];
+                else
+                    ways[i] = ways[i-1] + ways[i];
+            }
         }
         System.out.println(s + ":" + ways[len - 1]);
     }

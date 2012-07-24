@@ -1,5 +1,6 @@
 /**
  * http://algs4.cs.princeton.edu/24pq/
+ * min heap: only keep the min at the top, parent(root) < left and right node
  */
 public class MinHeap {
     private int maxSize;
@@ -8,15 +9,15 @@ public class MinHeap {
 
     public MinHeap(int max) {
         maxSize = max;
-        heap = new int[maxSize + 1];
-        current = 0;
+        heap = new int[maxSize + 1]; // min is heap[1], it easy to calculate left/right
+        current = 0; // current index
     }
 
     public void insert(int value) {
         if (current == maxSize) {
             throw new RuntimeException("Heap is full!");
         }
-        heap[++current] = value;
+        heap[++current] = value; // start from 1
         shiftUp(current);
     }
 
@@ -44,7 +45,7 @@ public class MinHeap {
     }
 
     private void shiftUp(int k) {
-        // k/2 is parent
+        // k/2 is parent, parent < left/right
         while (k > 1 && heap[k / 2] > heap[k]) {
             swap(k / 2, k);
             k = k / 2;
@@ -58,7 +59,7 @@ public class MinHeap {
             int j = i + 1; // right child
             //find the smallest of left and right
             if (i < current && heap[i] > heap[j]) {
-                i++;
+                i++; // i = j
             }
             if (heap[k] < heap[i]) {
                 break;

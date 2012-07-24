@@ -1,28 +1,34 @@
+import java.util.LinkedList;
 import java.util.NoSuchElementException;
+import java.util.Queue;
 import java.util.Stack;
 
 public class BTreeIterator {
     private Node root;
     private Stack<Node> stack;
     private Stack<Node> preOrderStack;
-    private Stack<Node> leftVisitedStack;
+    private Queue<Node> postOrderQueue;
 
     public BTreeIterator(Node n) {
         root = n;
         stack = new Stack<Node>();
-        leftVisitedStack = new Stack<Node>();
+        pushLeft(root);
+
+        // for post-order, no need for in-order
+        postOrderQueue = new LinkedList<Node>();
+        pushPostOrder(root);
+        // for pre-order
         preOrderStack = new Stack<Node>();
         preOrderStack.push(root);
-        pushLeft(root);
     }
-
+    //in-order
     public boolean hasNext() {
         return !stack.isEmpty();
     }
 
     public void reset() {
         stack.empty();
-        leftVisitedStack.empty();
+        postOrderQueue.clear();
         pushLeft(root);
     }
 
@@ -34,7 +40,7 @@ public class BTreeIterator {
         return inOrderNext();
     }
 
-    // in-order
+    // in-order : left, root, right
     public Node inOrderNext() {
         if (hasNext()) {
             Node node = stack.pop();
@@ -52,11 +58,11 @@ public class BTreeIterator {
         }
     }
 
-
     public boolean hasNextPreOrder(){
         return !preOrderStack.isEmpty();
     }
 
+    //pre-order: root, left, right
     public Node preOrderNext() {
         if (!preOrderStack.isEmpty()) {
             Node node = preOrderStack.pop();
@@ -71,21 +77,23 @@ public class BTreeIterator {
             return null;
         }
     }
+    public void pushPostOrder(Node n){
+        if(n == null)
+            return;
+        if(n.left != null)
+            pushPostOrder(n.left);
+        if(n.right != null)
+            pushPostOrder(n.right);
 
+        postOrderQueue.add(n);
+    }
+    public boolean hasNextPostOrder(){
+        return !postOrderQueue.isEmpty();
+    }
+    //post-order: left, right, root
     public Node postOrderNext() {
-        if (hasNext()) {
-            if (stack.peek().right == null ||
-                    leftVisitedStack.contains(stack.peek().right)) {
-
-                Node node = stack.pop();
-                return node;
-
-            } else {
-                leftVisitedStack.push(stack.peek().right);
-                pushLeft(stack.peek().right);
-                return postOrderNext();
-            }
-
+        if (!postOrderQueue.isEmpty()) {
+            return postOrderQueue.poll();
         } else {
             throw new NoSuchElementException();
         }

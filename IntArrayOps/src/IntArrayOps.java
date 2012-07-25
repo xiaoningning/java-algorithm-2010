@@ -14,7 +14,7 @@ public class IntArrayOps {
 
         System.out.println(Arrays.toString(a));
 
-        int[] a1 = new int[]{16, 7, 8, 9, 10, 13, 0, 1, 2, 0, 9, 13, 14};
+        int[] a1 = new int[]{16, 18, 7, 8, 9, 10, 13, 0, 1, 2, 0, 9, 13, 14};
         System.out.println(Arrays.toString(a1));
         ArrayList<Integer> lis = LIS(a1);
         System.out.println("LIS: " + lis.toString());
@@ -346,7 +346,7 @@ public class IntArrayOps {
 
         int index = trackLargestIndex.getLast();
         ArrayList<Integer> lis = new ArrayList<Integer>();
-        while(index != 0) {
+        for (int n = 0; n < trackLargestIndex.size(); ++n) {
             lis.add(0, a[index]);
             index = path[index];
         }

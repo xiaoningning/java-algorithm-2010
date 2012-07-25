@@ -36,17 +36,18 @@ public class FindLargestSubMatrix {
 
     }
 
+    // convert it to histogram
     public static void largestMatrix(int[][] m){
 
         if(m.length == 0 || m[0].length == 0)
             System.out.println("empty matrix");
-
 
         int max = 0;
         int end_row = 0;
         int left_col = 0;
         int right_col = 0;
         int h = 0 ;
+
         int[] height= new int[m[0].length];
 
         for(int i =0; i < m.length; i++){
@@ -69,14 +70,13 @@ public class FindLargestSubMatrix {
             }
         }
 
-
         System.out.println("max area : " + max
                 + " start " + (end_row - h +1) + "," + left_col
                 + " end " + (end_row) +","+right_col);
 
     }
 
-
+    // It's complicated to hold left/right in stack
     public static int largestArea(int[] h) {
         int max = 0, tmp;
         int[] area = new int[h.length];
@@ -98,7 +98,6 @@ public class FindLargestSubMatrix {
             area[i] = i - tmp - 1; // include itself
             s.push(i);
         }
-        //System.out.println(Arrays.toString(area));
 
         // empty stack for the right
         s.clear();
@@ -119,11 +118,9 @@ public class FindLargestSubMatrix {
             area[i] += tmp - i - 1; // left + right range and itself
             s.push(i);
         }
-        //System.out.println(Arrays.toString(area));
 
         // find max
         for (int i = 0; i < h.length; i++) {
-            // System.out.println( h[i] + " "+ area[i]);
             area[i] = h[i] * (area[i] + 1);
             if (area[i] > max)
                 max = area[i];
@@ -159,12 +156,10 @@ public class FindLargestSubMatrix {
             }
             right[i] = j - 1;
         }
-        // System.out.println(Arrays.toString(left));
-        // System.out.println(Arrays.toString(right));
         // find max
         for (int i = 0; i <= h.length - 1; i++) {
 
-            int tmp = h[i] * (right[i] - left[i] + 1);
+            int tmp = h[i] * (right[i] - left[i] + 1); // left+right+itself
             if (tmp > max)
                 max = tmp;
         }
@@ -200,6 +195,7 @@ public class FindLargestSubMatrix {
             right[i] = j - 1;
         }
 
+        // need to a better structure to hold data
         int[] arr = new int[4]; // height, left, right
         // find max
         for (int i = 0; i <= h.length - 1; i++) {
@@ -207,10 +203,10 @@ public class FindLargestSubMatrix {
             int tmp = h[i] * (right[i] - left[i] + 1);
             if (tmp > max){
                 max = tmp;
-                arr[0] = tmp;
-                arr[1] = h[i];
-                arr[2] = left[i];
-                arr[3] = right[i];
+                arr[0] = tmp; // max area
+                arr[1] = h[i]; // max area of height
+                arr[2] = left[i]; // left index
+                arr[3] = right[i]; // right index
 
             }
         }

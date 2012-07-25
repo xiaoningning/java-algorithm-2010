@@ -243,8 +243,6 @@ public class BTree {
     }
 
     public static BTree leftMostNode(BTree node) {
-        if (node == null)
-            return null;
 
         while (node.left != null)
             node = node.left;
@@ -317,9 +315,8 @@ public class BTree {
             BTree rnode = preorderSuc(node.right, k);
             return (lnode != null) ? lnode : rnode;
         }
-
-
     }
+
     // left, right, root
     public static BTree postorderSuc(BTree root, int k) {
         if (root == null)
@@ -343,7 +340,6 @@ public class BTree {
             BTree lnode = postorderSuc(root.left, k);
             BTree rnode = postorderSuc(root.right, k);
             return (lnode != null) ? lnode : rnode;
-
         }
     }
 

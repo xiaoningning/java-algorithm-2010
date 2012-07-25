@@ -4,7 +4,7 @@
 
 ## Introduction
 
-You are welcome to use code.  If you find any bug,  please file a issue.  I will fix it soon.  I will continue publishing new code whenever I see any interesting coding puzzle.
+You are welcome to use code.  If you find any bug,  please file an issue.  I will fix it soon.  I will continue publishing new code whenever I see any interesting coding puzzle.
 
 ## What are included:
 

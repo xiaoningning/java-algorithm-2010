@@ -23,7 +23,6 @@ public class BTree {
     public static BTree createMinimalBT(BTree root, int[] array, int s, int e) {
         if (s >= 0 && e <= array.length - 1 && s <= e) {
             int m = (e + s) / 2;
-
             root = new BTree(array[m]);
 
             root.left = createMinimalBT(root.left, array, s, m - 1);
@@ -74,13 +73,11 @@ public class BTree {
                 System.out.print(node.right.value + "\t");
             }
             if (current.isEmpty()) {
-                current = next;
+                current.addAll(next);
                 next.clear();
                 System.out.println();
             }
-
         }
-
     }
 
     public static int width(BTree root) {
@@ -392,7 +389,6 @@ public class BTree {
         System.out.println("tree size: " + treeSize(t1));
         System.out.println("tree 4 smallest: " + k_smallest_element(t1, 4).value);
         k_smallest_element1(t1,3);
-        //System.out.println("tree 4 smallest: " + k_smallest_element1(t1, 2).value);
 
         showByLevel(t1);
 
@@ -464,7 +460,6 @@ public class BTree {
         System.out.println("t3 preorder successor " + suc3);
         if (nextNode2 != null)
             System.out.println(nextNode2.value);
-
 
     }
 

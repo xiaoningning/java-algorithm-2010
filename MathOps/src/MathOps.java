@@ -69,7 +69,6 @@ public class MathOps {
         while (dividend >= divisor) {
             dividend -= divisor;
             result++;
-
         }
 
         if (neg_dividend ^ neg_divisor)
@@ -83,8 +82,10 @@ public class MathOps {
         assert (divisor != 0);
 
         boolean bNeg = false;
+
         if ((dividend < 0 && divisor > 0) || (dividend > 0 && divisor < 0))
             bNeg = true;
+
         long la = dividend;
         long ula = la < 0 ? -la : la;
         long lb = divisor;

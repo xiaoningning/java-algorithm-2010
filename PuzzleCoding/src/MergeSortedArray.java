@@ -70,7 +70,7 @@ public class MergeSortedArray {
                 int j = i + 1; //right
                 //find the smallest of left and right
                 if (i < heap.size() - 1 && greater(i, j)) {
-                    i++;
+                    i++;  // i = j;
                 }
                 if (greater(i, k)) break;
                 swap(i, k);

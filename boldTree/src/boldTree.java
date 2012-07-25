@@ -25,7 +25,7 @@ public class boldTree {
         return children;
     }
 
-    public boldTree getC(int n) {
+    public boldTree getChild(int n) {
         for (boldTree c : this.children) {
             if (c.number == n)
                 return c;
@@ -33,7 +33,7 @@ public class boldTree {
         return null;
     }
 
-    public void removeC(boldTree c) {
+    public void removeChild(boldTree c) {
         if (this.children.contains(c))
             this.children.remove(c);
     }
@@ -48,7 +48,6 @@ public class boldTree {
         for(boldTree c : root.getChildren()){
             if(boldSubTreeCopy(c) != null){
                 tmp.addChild(c);
-
             }
         }
         if(tmp.isBold ||tmp.getChildren().size() != 0)
@@ -57,6 +56,7 @@ public class boldTree {
             return null;
     }
 
+    // use flag, bottom-up
     public static boldTree boldSubTree(boldTree root) {
         if (root == null)
             return null;
@@ -93,13 +93,14 @@ public class boldTree {
                 nextLevel.add(c);
             }
             if (currentLevel.isEmpty()) {
-                currentLevel = nextLevel;
+                currentLevel.addAll( nextLevel);
                 nextLevel.clear();
                 System.out.println();
             }
         }
     }
 
+    // track non-bold node and remove, top-down approach
     public static boldTree extractBoldSubTree(boldTree root) {
         if (root == null) {
             return null;
@@ -120,32 +121,27 @@ public class boldTree {
                         nonBoldNodeList.put(r, new ArrayList<boldTree>());
                     nonBoldNodeList.get(r).add(c);
                 } else {
-
                     nextLevel.add(c);
                 }
 
             }
             if (currentLevel.isEmpty()) {
-                currentLevel = nextLevel;
+                currentLevel.addAll(nextLevel);
                 nextLevel.clear();
                 for (boldTree k : nonBoldNodeList.keySet()) {
                     for (boldTree c : nonBoldNodeList.get(k)) {
-                        k.removeC(c);
+                        k.removeChild(c);
                     }
                 }
                 nonBoldNodeList.clear();
             }
-
         }
-
         return root;
-
     }
 
     public static boolean hasBoldChild(boldTree n) {
         if(n == null)
             return false;
-
 
         for(boldTree c : n.getChildren()){
            if(hasBoldChild(c))
@@ -153,7 +149,6 @@ public class boldTree {
         }
 
         return n.isBold;
-
     }
 
     public static void show(boldTree n) {

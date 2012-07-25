@@ -16,7 +16,6 @@ public class RePack {
     public static void main(String args[]) {
         RePack rp = new RePack();
         rp.init();
-
         rp.goOverAllRounds();
 
     }
@@ -26,6 +25,8 @@ public class RePack {
 
     Queue<Integer> pack = new LinkedList<Integer>();
     Stack<Integer> desk = new Stack<Integer>();
+    int countAction = 0;
+    boolean done = false;
 
     public void init() {
         for (int i = 0; i < capacity; i++) {
@@ -50,37 +51,30 @@ public class RePack {
             }
             */
 
-            // System.out.println();
             if (!this.done) {
                 //reload from desk
                 this.pack.clear();
                 this.pack.addAll(this.desk);
                 this.desk.clear();
-
             }
-
         }
     }
-
-    int countAction = 0;
-    boolean done = false;
 
     public void oneRound() {
         while (!this.pack.isEmpty()) {
-            this.oneAction1();
+            this.oneAction();
         }
     }
 
-    // my cleaner version
-    public void oneAction1() {
+    // cleaner version
+    public void oneAction() {
 
         while (this.pack.size() > 0) {
             this.countAction++;
 
             this.desk.add(this.pack.poll());
-            if (this.pack.size() > 1)
+            if (this.pack.size() > 0)
                 this.pack.add(this.pack.poll());
-
         }
         // check the order
         for (int i = 0; i < this.capacity; ++i) {
@@ -92,41 +86,6 @@ public class RePack {
         return;
 
     }
-
-
-    public void oneAction() {
-        this.countAction++;
-        //System.out.println("loop count:" + this.countAction);
-
-        if (this.pack.size() == 1) {
-            //just put to desk
-            this.desk.add(this.pack.poll());
-
-            //check
-            for (int i = 0; i < this.capacity; i++) {
-                boolean correct = (this.desk.get(i) == i);
-                if (!correct) {
-                    //reload
-                    return;
-                }
-
-            }
-            // System.out.print("correct : " + this.countAction);
-            this.done = true;
-            return;
-
-        } else {
-            // move to desk
-            this.desk.add(this.pack.poll());
-
-            // move back to pack
-            this.pack.add(this.pack.poll());
-
-        }
-
-
-    }
-
 
 }
 

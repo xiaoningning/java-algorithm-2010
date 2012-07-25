@@ -6,11 +6,8 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * @author ning wei
- *         Date: 4/25/12
- *         Time: 6:08 PM
- *         For a given array arr[], returns the maximum j – i such that
- *         arr[j] > arr[i]
+ *  For a given array arr[], returns the maximum j – i such that
+ *  arr[j] > arr[i]
  */
 public class maxDist {
     private static int maxDist(List<Integer> list) {

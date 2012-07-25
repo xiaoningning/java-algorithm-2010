@@ -74,7 +74,7 @@ public class StringOps {
 
     // longest repeated string
     public static String LRS(String s) {
-        StringBuffer sb1 = new StringBuffer();
+        StringBuilder sb1 = new StringBuilder();
         String sb2 = "";     // it is a holder for LRS
         char[] chars = s.toCharArray();
         sb1.append(chars[0]);
@@ -86,7 +86,7 @@ public class StringOps {
                 if (sb1.length() > sb2.length()) {
                     sb2 = sb1.toString();
                 }
-                sb1 = new StringBuffer();
+                sb1 = new StringBuilder();
                 sb1.append(chars[i]);
             }
         }
@@ -121,9 +121,9 @@ public class StringOps {
             if (s1.charAt(i) != s2.charAt(i))
                 return s1.substring(0, i);
         }
-        return s1.substring(0, n);
+        return s1;
     }
-
+    // longest common string
     public static String LCS(String x, String y) {
         int N = x.length();
         int M = y.length();

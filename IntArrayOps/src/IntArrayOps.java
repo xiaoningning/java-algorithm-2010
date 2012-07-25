@@ -12,7 +12,6 @@ public class IntArrayOps {
             a[i] = 0 + (int) (Math.random() * length);
         }
 
-
         System.out.println(Arrays.toString(a));
 
         int[] a1 = new int[]{7, 8, 9, 10, 13, 0, 1, 2, 0, 9, 13, 14};
@@ -45,12 +44,12 @@ public class IntArrayOps {
         System.out.println("a1 rank " + rank + " : " + pick);
 
         int a3 = 134;
-        System.out.println(a3 + " reversed to " + reverseInt(a3));
+        System.out.println(a3 + " reversed to " + isPalindrome1(a3));
 
         int a4 = 1551;
         System.out.println(a4 + " isPalindrome: " + isPalindrome(a4));
 
-        int[] a5 = new int[]{3, 5, 10, -1, 1};
+        int[] a5 = new int[]{3, -1, 1, 2, 4};
 
         System.out.println(Arrays.toString(a5) + " 1st missing positiv: " + firstMissingPositive(a5, a5.length));
 
@@ -63,7 +62,7 @@ public class IntArrayOps {
         removeDupInplace(a8);
         System.out.println("remove dup of a sorted arr in place: " + Arrays.toString(a8));
 
-        int[] a9 = new int[]{-1, -1, 1, 1, 2, 2, 3, 4, 4, 5, 6, 6, 7,7,8};
+        int[] a9 = new int[]{-1, -1, 1, 1, 2, 2, 3, 4, 4, 5, 6, 6, 7, 7, 8};
         removeDupInplace2(a9);
         System.out.println("remove dup of a sorted arr in place2: " + Arrays.toString(a9));
 
@@ -193,7 +192,6 @@ public class IntArrayOps {
             if (a[j] != a[i]) {
                 a[j + 1] = a[i];
                 j++;
-
             }
         }
         j++;
@@ -203,6 +201,7 @@ public class IntArrayOps {
         }
     }
 
+    // not a good solution
     public static void removeDupInplace(int[] a) {
         if (a.length <= 1) return;
 
@@ -230,8 +229,6 @@ public class IntArrayOps {
             }
             if (a[i] == 0)
                 return;
-
-
         }
 
     }
@@ -252,14 +249,9 @@ public class IntArrayOps {
         while (k >= 0) {
             if (s[k] >= l[j]) {
                 l[i--] = s[k--];
-                //i--;
-                //k--;
             } else {
                 l[i--] = l[j--];
-                //i--;
-                //j--;
             }
-
         }
 
         while (k >= 0) {
@@ -268,16 +260,17 @@ public class IntArrayOps {
     }
 
     public static int firstMissingPositive(int A[], int n) {
+
+        if (A.length == 0) return 1;
+
         //The key idea is to put every element in A such that A[i]=i+1
         for (int i = 0; i < n; i++) {
-            //System.out.println(Arrays.toString(A));
             while (A[i] != i + 1 && A[i] > 0 && A[i] <= n && A[i] != A[A[i] - 1]) {
                 int temp = A[i];
                 A[i] = A[temp - 1];
                 A[temp - 1] = temp;
             }
         }
-        //System.out.println(Arrays.toString(A));
         for (int i = 0; i < n; i++) {
             if (A[i] != i + 1) return i + 1;
         }
@@ -300,6 +293,11 @@ public class IntArrayOps {
         return true;
     }
 
+    public static boolean isPalindrome1(int x) {
+        if (x < 0) return false;
+        return x == reverseInt(x);
+    }
+
     public static int reverseInt(int a) {
         int r = 0;
         while (a != 0) {
@@ -313,54 +311,47 @@ public class IntArrayOps {
     // longest increasing sequence
     public static ArrayList<Integer> LIS(int[] a) {
 
-        LinkedList<Integer> memo = new LinkedList<Integer>();
+        LinkedList<Integer> trackLargestIndex = new LinkedList<Integer>();
         int[] path = new int[a.length];
 
-        memo.add(0);
+        trackLargestIndex.add(0);
         path[0] = 0;
 
         for (int i = 1; i < a.length; ++i) {
 
-            if (a[memo.getLast()] <= a[i]) {
-                path[i] = memo.getLast(); // record the index of previous smaller element
-                memo.add(i);  // record the index of the largest element
+            if (a[trackLargestIndex.getLast()] <= a[i]) {
+                path[i] = trackLargestIndex.getLast(); // record the index of previous smaller element
+                trackLargestIndex.add(i);  // record the index of the largest element
             } else {
                 int s, e;
-                for (s = 0, e = memo.size() - 1; s < e; ) {
+                for (s = 0, e = trackLargestIndex.size() - 1; s < e; ) {
 
                     int m = (e + s) / 2;
 
-                    if (a[memo.get(m)] <= a[i])
+                    if (a[trackLargestIndex.get(m)] <= a[i])
                         s = m + 1;
                     else
                         e = m;
 
                 }
-                if (a[i] < a[memo.get(s)]) {
-                    memo.set(s, i);
+                if (a[i] < a[trackLargestIndex.get(s)]) {
+                    trackLargestIndex.set(s, i);
                     if (s > 0)
-                        path[i] = memo.get(s - 1);
+                        path[i] = trackLargestIndex.get(s - 1);
                     else
                         path[i] = 0;
                 }
-
             }
-
         }
 
-        int pos = memo.getLast();
+        int index = trackLargestIndex.getLast();
         ArrayList<Integer> lis = new ArrayList<Integer>();
-        for (int n = 0; n < memo.size(); ++n) {
-            lis.add(0, a[pos]);
-            pos = path[pos];
+        for (int n = 0; n < trackLargestIndex.size(); ++n) {
+            lis.add(0, a[index]);
+            index = path[index];
         }
-
-        // System.out.println("LIS: " + lis.toString());
-        // reverse the order
-        Collections.sort(lis);
 
         return lis;
-
     }
 
     public static int LIS1(int[] a) {
@@ -390,9 +381,7 @@ public class IntArrayOps {
             }
 
         }
-        //System.out.println(Arrays.toString(trackTable));
         return max;
-
     }
 
     public static int partition(int[] a, int left, int right) {
@@ -402,17 +391,17 @@ public class IntArrayOps {
                 right--;
             while (a[left] < pivot)
                 left++;
+
             if (left <= right) {
                 int tmp = a[right];
                 a[right] = a[left];
                 a[left] = tmp;
+
                 right--;
                 left++;
             }
 
         }
-        // System.out.print(pivot + " : " );
-        // System.out.println(Arrays.toString(a));
         return left;
     }
 
@@ -439,7 +428,6 @@ public class IntArrayOps {
         if (leftSize == rank)
             return max(a, left, pivotIndex);
         else if (rank < leftSize) {
-            // System.out.println(left +" "+ pivotIndex + " " + rank );
             return pickRank(a, left, pivotIndex - 1, rank);
         } else //(rank > leftSize)
             return pickRank(a, pivotIndex, right, rank - leftSize);
@@ -456,7 +444,6 @@ public class IntArrayOps {
 
     public static void merge(int[] a, int left, int middle, int right) {
 
-        // int[] helper = a.clone();
         int[] helper = new int[a.length];
 
         for (int i = left; i <= right; ++i) {
@@ -475,9 +462,7 @@ public class IntArrayOps {
                 a[current] = helper[helperMiddle];
                 helperMiddle--;
                 current--;
-
             }
-
         }
 
         while (helperRight > middle) {
@@ -487,6 +472,5 @@ public class IntArrayOps {
         }
 
     }
-
 
 }

@@ -26,7 +26,7 @@ public class LongestBalanceSubstring {
         String balanceString = longestBalanceSubstring(s);
         System.out.println(balanceString);
 
-        String s1 = "0101001";
+        String s1 = "11010";
         String balanceString1 = longestBalanceSubstring(s1);
         System.out.println(balanceString1);
 

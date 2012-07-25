@@ -1,10 +1,6 @@
 import java.util.Arrays;
 
 /**
- * Created with IntelliJ IDEA.
- * User: ningwei
- * Date: 5/15/12
- * Time: 8:27 PM
  * To find a x in a 2D sorted array
  */
 public class find2DArray {
@@ -20,8 +16,6 @@ public class find2DArray {
 
         int target = 80;
 
-        //System.out.println(arr[0].length - 1);
-
         find2DArrayNum(arr, target);
     }
 
@@ -29,7 +23,6 @@ public class find2DArray {
         int r = 0;
         int c = n[0].length -1;
         while( r < n.length && c >= 0){
-            // System.out.println(n[r][c]);
             if(n[r][c] == x){
                 System.out.println(r + " " + c );
                 return;
@@ -41,8 +34,6 @@ public class find2DArray {
         }
         System.out.println("not found");
     }
-
-
 
 }
 

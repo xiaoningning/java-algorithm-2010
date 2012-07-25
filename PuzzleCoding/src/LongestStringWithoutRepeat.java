@@ -36,6 +36,7 @@ public class LongestStringWithoutRepeat {
             }
         }
 
+        // the last case a[n-1] is not repeated
         if (n - start > maxLen) {
             maxLen = n - start;
             maxStart = start;

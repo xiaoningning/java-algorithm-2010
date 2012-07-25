@@ -3,12 +3,9 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * User: ning wei
- * Date: 5/2/12
- * Time: 8:23 PM
- *
+  *
  * You'll be given a list of activities and their caloric impact.
- * Write a program that outputs the names of activities a Dropboxer should choose to partake in
+ * Write a program that outputs the names of activities one should choose to partake in
  * so that the sum of their caloric impact is zero.
  * Once an activity is selected, it cannot be chosen again.
  *
@@ -41,9 +38,7 @@ public class ActivityZero {
 
             ActivityZero az = new ActivityZero(tempArray[0], Integer.parseInt(tempArray[1]));
             listActivityZero.add(az);
-
             n--;
-
         }
 
         scanner.close();

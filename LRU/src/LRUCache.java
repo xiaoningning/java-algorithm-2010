@@ -40,7 +40,6 @@ public class LRUCache<K, V> {
             return true;
         } else
             return false;
-
     }
 
     public int size() {
@@ -56,7 +55,6 @@ public class LRUCache<K, V> {
     public V getFirst(){
         if(!queue.isEmpty()){
             return lru.get(queue.peek());
-
         }
         else
             return null;

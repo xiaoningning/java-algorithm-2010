@@ -11,7 +11,7 @@ You are welcome to use code.  If you find any bug,  please file an issue.  I wil
 #### Puzzle Coding Fun:
 
 [Puzzle Coding] (https://github.com/xiaoningning/algorithm/tree/master/PuzzleCoding)
-It includes a collection of coding fun puzzles.
+It includes a collection of fun coding puzzles.
 
  - AddBinary: add two binary number from string
  - AddTwoNumber: add two number from arrays

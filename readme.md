@@ -43,7 +43,7 @@ It includes a collection of coding fun puzzles.
  - MinCostSortedArray: cost to sort array
  - MinCuttingWords: the minimal way to cut string based on dictionary
  - MinHeap: min heap implementation
- - MinPathSum:  min sum of path
+ - MinPathSum:  min sum of path (DP and Dijkstra)
  - MinWindowSubString: minimal window of substring
  - Node: tree node
  - Queen: Queen game

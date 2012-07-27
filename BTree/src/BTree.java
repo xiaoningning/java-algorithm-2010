@@ -102,7 +102,7 @@ public class BTree {
             if (current.isEmpty()) {
                 if (next.size() > width)
                     width = next.size();
-                current = next;
+                current.addAll(next);
                 next.clear();
             }
 

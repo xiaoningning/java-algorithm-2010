@@ -36,7 +36,7 @@ public class StringOps {
         perm("", s4);
 
         System.out.println("perm1 s4: " + s4);
-        perm1(s4.toCharArray(), s4.length()-1);
+        perm1(s4.toCharArray(), s4.length());
 
         String s6 = "abcd";
         System.out.println("move s6: " + s6);
@@ -311,7 +311,7 @@ public class StringOps {
             System.out.println(s);
             return;
         }
-        for (int i = 0; i <= n; i++) {
+        for (int i = 0; i < n; i++) {
             swap(s, i, n - 1);
             perm1(s, n - 1);
             swap(s, i, n - 1);

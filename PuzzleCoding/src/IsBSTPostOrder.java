@@ -19,17 +19,17 @@ public class IsBSTPostOrder {
         }
 
         int i = left;
-        for (; i <= right; i++) {
+        for (; i < right; i++) {
             if (a[i] > a[right])
                 break;
         }
-
-        for (int j = i; j <= right; j++) {
+        int j = i;
+        for (; j < right; j++) {
             if (a[j] < a[right])
                 return false;
         }
 
-        return isBstPostOrder(a, left, i - 1) && isBstPostOrder(a, i, right - 1);
+        return isBstPostOrder(a, left, i - 1) && isBstPostOrder(a, i, j-1);
 
     }
 }

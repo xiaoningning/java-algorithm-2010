@@ -149,27 +149,22 @@ public class BTree {
     public static BTree commonRoot(BTree root, int p, int q) {
         if (root == null)
             return null;
-        if (root.value == p && root.value == q)
+        if (root.value == p || root.value == q)
             return root;
 
         BTree l = commonRoot(root.left, p, q);
         BTree r = commonRoot(root.right, p, q);
 
+        /*
         if (r != null && r.value != q && r.value != p)
             return r;
         if (l != null && l.value != q && l.value != p)
             return l;
-
-        if (root.value == p || root.value == q) {
-            if (l != null || r != null)
-                return root;
-
-        } else if (l != null && r != null && l.value != r.value)
+        */
+        if (l != null && r != null && l.value != r.value)
             return root;
         else
             return (l != null) ? l : r;
-
-        return null;
 
     }
 
@@ -406,6 +401,8 @@ public class BTree {
         if (cr != null && coverNode(t1, p) != null && coverNode(t1, q) != null)
             System.out.println(cr.value);
 
+        p = 12;
+        q = 13;
         BTree cr1 = commonRoot(t1, p, q);
         System.out.println("common root: " + p + " and  " + q);
         if (cr1 != null && coverNode(t1, p) != null && coverNode(t1, q) != null)

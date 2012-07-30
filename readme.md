@@ -91,7 +91,7 @@ It includes a collection of fun coding puzzles.
 - sumZero
 - TreeOps
 - TriangleFunc
-
+- MirrorMaze
 
 ## License
 
